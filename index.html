@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Site address: https://homes-by-joehanna.github.io -->
+<title>Palm Beach West, Met Park Pasay | Move-in ready 2 &amp; 3 BR homes · Joehanna Adolfo</title>
+<meta name="description" content="Palm Beach West Baler Tower, Met Park, Pasay City. Pet-friendly, resort-inspired, move-in ready 2 and 3 bedroom homes near NAIA and Mall of Asia. Ask Joehanna Adolfo for the latest price list and a model unit viewing.">
+<meta property="og:title" content="Palm Beach West, Met Park Pasay: resort-inspired 2 &amp; 3 BR homes">
+<meta property="og:description" content="Pet-friendly, move-in ready homes between Roxas and Macapagal Blvd. Book a model unit viewing.">
+<meta property="og:image" content="https://homes-by-joehanna.github.io/images/hero-pool.jpg">
+<meta property="og:image:width" content="1357">
+<meta property="og:image:height" content="829">
+<meta property="og:url" content="https://homes-by-joehanna.github.io/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://homes-by-joehanna.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FBE9E6'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23A85A6A'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== Design tokens: light "Blush & Rose" palette (same structure as the Escana template) ===== */
+  :root{
+    --deep:#8E4A5A; --deep-2:#7A3E4D; --head:#5A2E3E; --gold:#A85A6A; --gold-ink:#9A4F5E;
+    --cream:#FFF8F6; --sand:#FBE9E6; --blush:#F6DDD9; --paper:#FFFFFF; --ink:#3A2830; --muted:#6E5A62; --line:#F0DCD7;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Jost", "Helvetica Neue", Arial, sans-serif;
+    --r:12px; --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased;padding-bottom:62px}
+  img{display:block;width:100%;height:auto}
+  a{color:inherit}
+  [hidden]{display:none!important}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+  .kicker{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);font-weight:600}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,6.5vw,40px);line-height:1.1;color:var(--deep);margin:6px 0 10px}
+  section{padding:52px 0}
+  .muted{color:var(--muted)}
+  .small{font-size:12.5px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:var(--deep);text-decoration:none;font-weight:600;font-size:16px;padding:16px 26px;min-height:48px;border:0;border-radius:999px;cursor:pointer;transition:transform .15s,background .2s;text-align:center}
+  .btn:hover{background:#E4B5A5}
+  .btn:active{transform:scale(.98)}
+  .btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+  .btn-outline:hover{background:rgba(255,255,255,.08)}
+  .btn-dark{background:var(--deep);color:#fff}
+  .btn-dark:hover{background:var(--deep-2)}
+  .btn-line{background:transparent;color:var(--deep);border:1.5px solid var(--deep)}
+  .btn-line:hover{background:var(--sand)}
+
+  /* ===== HERO ===== */
+  .hero{background:var(--deep);color:#fff;padding:18px 0 0;overflow:hidden}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+  .logo{font-family:var(--serif);font-size:22px;letter-spacing:.2em;text-decoration:none;color:#fff;line-height:1.1}
+  .logo span{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.45em;color:var(--gold);margin-top:2px}
+  .nav a.mini{font-size:13px;font-weight:500;text-decoration:none;color:var(--gold);border:1px solid rgba(217,163,145,.5);padding:0 16px;min-height:44px;display:inline-flex;align-items:center;border-radius:999px}
+  .badge{display:inline-block;font-size:12.5px;font-weight:500;color:var(--gold);background:rgba(217,163,145,.10);border:1px solid rgba(217,163,145,.45);padding:7px 12px;border-radius:999px;margin-bottom:16px}
+  .hero .eyebrow{font-size:12px;letter-spacing:.22em;color:#D4B3C2;text-transform:uppercase;font-weight:600}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(38px,9.5vw,66px);line-height:1.02;margin:10px 0 10px}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero .sub{color:#E8CFD9;font-size:16px;margin-bottom:24px;max-width:34em}
+  .hero .ctas{display:flex;flex-direction:column;gap:10px}
+  .hero-img{margin-top:34px;position:relative}
+  .hero-img img{aspect-ratio:16/10;object-fit:cover}
+  .hero-img small,.tag{position:absolute;right:10px;bottom:8px;font-size:11px;color:#fff;background:rgba(0,0,0,.35);padding:2px 8px;border-radius:999px}
+  @media(max-width:859px){
+    .nav a.mini{display:none}
+    .hero{background:linear-gradient(180deg,rgba(74,38,57,.55) 0%,rgba(74,38,57,.82) 40%,#4A2639 64%),url("images/hero-pool.jpg") center top/cover no-repeat,#4A2639;padding-bottom:40px}
+    .hero-img{display:none}
+  }
+  @media(min-width:860px){
+    .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:44px;align-items:center}
+    .hero .ctas{flex-direction:row}
+    .hero-img{margin-top:0}
+    .hero-img img{border-radius:var(--r);aspect-ratio:4/3}
+    .hero{padding-bottom:56px}
+  }
+
+  /* ===== Featured 2 BR ===== */
+  .featured{background:var(--paper)}
+  .feat-grid{display:grid;gap:22px;align-items:center}
+  @media(min-width:860px){.feat-grid{grid-template-columns:1.1fr 1fr;gap:44px}}
+  .feat-img img{border:1px solid var(--line);border-radius:var(--r);background:#fff}
+  .feat-img figcaption a,.plan a.full{display:inline-flex;min-height:44px;align-items:center;color:var(--deep);font-weight:600;font-size:13.5px}
+  .feat-list{list-style:none;display:grid;gap:8px;margin:6px 0 18px;font-size:15px}
+  .feat-list li::before{content:"✓";color:var(--gold-ink);font-weight:600;margin-right:8px}
+  .price-note{background:var(--sand);border-radius:8px;padding:12px 14px;font-size:14.5px;margin-bottom:16px}
+  .price-note b{color:var(--deep)}
+
+  /* ===== Floor plans ===== */
+  .tabs{display:flex;gap:8px;margin-top:18px}
+  .tab{min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid var(--deep);background:transparent;color:var(--deep);font:inherit;font-weight:600;cursor:pointer}
+  .tab[aria-selected="true"]{background:var(--deep);color:#fff}
+  .plans{display:grid;gap:12px;margin-top:16px}
+  @media(min-width:640px){.plans{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:960px){.plans{grid-template-columns:repeat(3,1fr)}}
+  .plan{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:flex;flex-direction:column}
+  .plan-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
+  .plan-head h3{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--deep);line-height:1.1}
+  .plan-head span{font-size:13px;color:var(--muted);white-space:nowrap}
+  .plan img{border-radius:8px;border:1px solid var(--line);background:#fff;aspect-ratio:4/3;object-fit:contain}
+  .plan-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:auto;padding-top:6px}
+  .plan-actions .ask{min-height:44px;display:inline-flex;align-items:center;font-size:14px;font-weight:600;color:var(--gold-ink);text-decoration:none}
+  .plan.help{background:var(--deep);color:#fff;border-color:var(--deep);justify-content:space-between}
+  .plan.help h3{color:#fff}
+  .plan.help p{color:#D4B3C2;font-size:14.5px;margin:6px 0 16px}
+
+  /* ===== Prices on request ===== */
+  .pricebox{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:16px}
+  @media(min-width:860px){.pricebox{grid-template-columns:1.3fr 1fr;align-items:center;padding:30px}}
+  .pricebox ul{list-style:none;display:grid;gap:8px;font-size:15px}
+  .pricebox li::before{content:"✓";color:var(--gold-ink);font-weight:600;margin-right:8px}
+
+  /* ===== Galleries: swipe on mobile ===== */
+  .strip{display:grid;grid-auto-flow:column;grid-auto-columns:82%;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 18px 10px;margin:18px -18px 0;-webkit-overflow-scrolling:touch}
+  .strip figure{scroll-snap-align:start;position:relative}
+  .strip img{border-radius:var(--r);aspect-ratio:3/2;object-fit:cover}
+  .strip figcaption{position:absolute;left:0;right:0;bottom:0;margin:0;padding:24px 12px 9px;color:#fff;font-size:12.5px;border-radius:0 0 var(--r) var(--r);background:linear-gradient(transparent,rgba(0,0,0,.62))}
+  @media(min-width:860px){.strip{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;margin:18px 0 0;padding:0}}
+
+  /* ===== Why Palm Beach West ===== */
+  .why{background:var(--paper)}
+  .why-grid{display:grid;gap:22px;align-items:start}
+  @media(min-width:860px){.why-grid{grid-template-columns:1fr 1fr;gap:40px}}
+  .why figure{position:relative}
+  .why img{border-radius:var(--r)}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:16px}
+  .facts div{background:var(--paper);padding:14px}
+  .facts b{display:block;font-family:var(--serif);font-size:24px;color:var(--deep);line-height:1.1}
+  .facts span{font-size:12.5px;color:var(--muted)}
+  .reasons{list-style:none;display:grid;gap:8px;margin-top:6px;font-size:15px}
+  .reasons li::before{content:"✓";color:var(--gold-ink);font-weight:600;margin-right:8px}
+  .sub-h{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--deep);margin:30px 0 10px}
+  .near{display:grid;gap:10px}
+  @media(min-width:640px){.near{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:960px){.near{grid-template-columns:repeat(4,1fr)}}
+  .near div{background:var(--cream);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+  .near b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:4px}
+  .near p{font-size:14px}
+  figure figcaption{font-size:11.5px;color:var(--muted);margin-top:6px}
+
+  /* ===== Amenities + features ===== */
+  .feature-cols{display:grid;gap:8px 24px;margin-top:22px;font-size:14.5px}
+  @media(min-width:760px){.feature-cols{grid-template-columns:repeat(3,1fr)}}
+  .feature-cols div{padding:8px 0;border-bottom:1px solid var(--line)}
+
+  /* ===== Unit deliverables table ===== */
+  .deliv{margin-top:18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .deliv-row{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line);padding:12px 14px;gap:4px;font-size:14px}
+  .deliv-row:first-child{border-top:0}
+  .deliv-row h4{font-family:var(--serif);font-size:20px;color:var(--deep)}
+  .deliv-row dl{display:grid;grid-template-columns:76px 1fr;gap:2px 10px}
+  .deliv-row dt{color:var(--gold-ink);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding-top:2px}
+  @media(min-width:860px){
+    .deliv-row{grid-template-columns:150px 1fr;align-items:start}
+    .deliv-row dl{grid-template-columns:repeat(4,auto 1fr)}
+  }
+  .upgrade{margin-top:12px;background:var(--sand);border-radius:var(--r);padding:14px 16px;font-size:14.5px}
+
+  /* ===== Form ===== */
+  .inquire{background:var(--deep);color:#fff}
+  .inquire h2{color:#fff}
+  .inquire .muted{color:#D4B3C2}
+  .inquire .kicker{color:var(--gold)}
+  .perks{list-style:none;margin:14px 0 0;display:grid;gap:6px;font-size:14.5px;color:#F1E0E7}
+  .perks li::before{content:"✓";color:var(--gold);font-weight:600;margin-right:8px}
+  form{margin-top:24px;background:var(--paper);color:var(--ink);padding:22px;border-radius:var(--r);display:grid;gap:14px}
+  @media(min-width:760px){form{grid-template-columns:1fr 1fr;padding:30px}.full{grid-column:1/-1}}
+  label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:var(--deep)}
+  input,select,textarea{width:100%;font:inherit;font-size:16px;padding:12px;border:1px solid #D9C3BB;border-radius:8px;background:#fff;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+  .consent{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;cursor:pointer;padding:6px 0;font-weight:400;color:var(--muted)}
+  .consent input{width:22px;height:22px;margin-top:1px;flex:none;accent-color:var(--deep)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  form .btn{background:var(--deep);color:#fff}
+  form .btn:hover{background:var(--deep-2)}
+  #form-status{font-size:15px;padding:14px;border-radius:8px;display:none}
+  #form-status.ok{display:block;background:#EEF3E6;color:#2f5a1e}
+  #form-status.err{display:block;background:#FBECEA;color:#8a2a1c}
+  .direct-send{display:grid;gap:8px;margin-top:12px}
+  @media(min-width:760px){.direct-send{grid-template-columns:repeat(3,1fr)}}
+  button[disabled]{opacity:.6;cursor:wait}
+  .viber-help{position:fixed;left:12px;right:12px;bottom:76px;z-index:30;max-width:420px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 10px 30px rgba(0,0,0,.18);padding:16px;font-size:15px}
+  .vh-actions{display:flex;gap:8px;margin-top:10px}
+  .vh-actions .btn{flex:1;padding:12px 10px;font-size:14px}
+
+  /* ===== Seller ===== */
+  .seller-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+  .seller-top{display:flex;align-items:center;gap:16px}
+  /* Portrait photo: tall rectangle with rounded corners */
+  .seller-photo{width:120px;height:150px;border-radius:18px;flex:none;object-fit:cover;object-position:center top;background:var(--blush)}
+  @media(min-width:760px){.seller-photo{width:176px;height:220px;border-radius:22px}}
+  .seller-title{font-size:14px;font-weight:600;color:var(--gold-ink);margin-top:-4px}
+  .contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+
+  footer{background:#2C1622;color:#D4B3C2;font-size:12.5px;padding:32px 0 28px;line-height:1.7}
+  footer p+p{margin-top:9px}
+  footer strong{color:#F6E9EE}
+
+  /* ===== Sticky mobile action bar ===== */
+  .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr 1.4fr;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.08)}
+  .actionbar a{display:flex;align-items:center;justify-content:center;padding:15px 6px;min-height:52px;font-size:14px;font-weight:600;text-decoration:none;color:var(--deep)}
+  .actionbar a.primary{background:var(--gold)}
+  @media(min-width:860px){.actionbar{display:none}body{padding-bottom:0}}
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+
+  /* ===== LIGHT THEME OVERRIDES: no dark blocks, dark text on soft backgrounds ===== */
+  h2{color:var(--head)}
+  .btn{background:var(--gold);color:#fff}
+  .btn:hover{background:var(--deep-2)}
+  .btn-outline{background:#fff;color:var(--head);border:1.5px solid var(--deep)}
+  .btn-outline:hover{background:var(--sand)}
+  .btn-line{background:transparent;color:var(--head);border:1.5px solid var(--deep)}
+  .btn-line:hover{background:var(--sand)}
+  .btn-dark{background:var(--deep);color:#fff}
+  .btn-dark:hover{background:var(--deep-2)}
+  .hero{background:linear-gradient(180deg,var(--sand) 0%,var(--cream) 100%);color:var(--ink)}
+  .logo{color:var(--head)}
+  .logo span{color:var(--gold-ink)}
+  .nav a.mini{color:var(--head);border-color:var(--deep)}
+  .badge{color:var(--head);background:#fff;border-color:var(--line)}
+  .hero .eyebrow{color:var(--gold-ink)}
+  .hero h1{color:var(--head)}
+  .hero h1 em{color:var(--gold)}
+  .hero .sub{color:var(--muted)}
+  @media(max-width:859px){
+    .hero{background:linear-gradient(180deg,var(--sand) 0%,var(--cream) 100%);padding-bottom:0}
+    .hero-img{display:block;margin:26px -18px 0}
+    .hero-img img{aspect-ratio:16/10}
+  }
+  .hero-img img{box-shadow:0 18px 40px -20px rgba(90,46,62,.45)}
+  .plan-head h3,.deliv-row h4,.sub-h,.facts b{color:var(--head)}
+  .tab{border-color:var(--deep);color:var(--head)}
+  .tab[aria-selected="true"]{background:var(--deep);color:#fff}
+  .plan.help{background:var(--sand);color:var(--ink);border-color:var(--line)}
+  .plan.help h3{color:var(--head)}
+  .plan.help p{color:var(--muted)}
+  .inquire{background:var(--sand);color:var(--ink)}
+  .inquire h2{color:var(--head)}
+  .inquire .muted{color:var(--muted)}
+  .inquire .kicker{color:var(--gold-ink)}
+  .perks{color:var(--ink)}
+  .perks li::before{color:var(--gold-ink)}
+  form{box-shadow:0 10px 30px -18px rgba(90,46,62,.35)}
+  form .btn{background:var(--gold)}
+  form .btn:hover{background:var(--deep-2)}
+  .seller-photo{box-shadow:0 14px 30px -16px rgba(90,46,62,.55),0 0 0 1px var(--line)}
+  footer{background:var(--blush);color:var(--ink)}
+  footer strong{color:var(--head)}
+  .actionbar a{color:var(--head)}
+  .actionbar a.primary{background:var(--gold);color:#fff}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="logo" href="#top">PALM BEACH<span>WEST · MET PARK</span></a>
+      <a class="mini" href="#inquire">Book a viewing</a>
+    </nav>
+    <div class="hero-grid">
+      <div>
+        <!-- "Move in ready" is from page 1 of the official presentation (file dated Nov 4, 2026) -->
+        <div class="badge">Move-in ready · Pet-friendly</div>
+        <div class="eyebrow">Baler Tower · Met Park, Pasay City</div>
+        <h1>Your resort-inspired home in the <em>Bay Area</em></h1>
+        <p class="sub">2 and 3 bedroom homes between Roxas and Macapagal Blvd, near NAIA, Mall of Asia and the Bay City resorts.</p>
+        <div class="ctas">
+          <a class="btn" href="#inquire">Book a model unit viewing</a>
+          <a class="btn btn-outline" href="#plans">See floor plans</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="images/hero-pool.jpg" alt="Palm Beach West swimming pool between the residential towers" width="1357" height="829" fetchpriority="high">
+        <small>Actual photo</small>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== FEATURED: 2 BEDROOM ===================== -->
+<section class="featured" id="featured">
+  <div class="wrap feat-grid">
+    <figure class="feat-img">
+      <img src="images/plan-2br-38-5.jpg" alt="Baler Tower 2 bedroom unit floor plan, 38.5 sqm with balcony" width="2000" height="1501" loading="lazy">
+      <figcaption><a href="images/plan-2br-38-5.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption>
+    </figure>
+    <div>
+      <div class="kicker">Featured: 2 Bedroom</div>
+      <h2>Two bedrooms, room to grow</h2>
+      <ul class="feat-list">
+        <li>2 bedrooms with balcony, from 38.5 sqm</li>
+        <li>Six 2 BR layouts, up to the 52 sqm 2 BR Deluxe</li>
+        <li>Furnished 2 bedroom model unit you can visit</li>
+        <li>Granite kitchen countertop and modular base cabinets</li>
+      </ul>
+      <!-- PRICE PLACEHOLDER: replace with "from ₱X" once the dated official price list is in hand -->
+      <p class="price-note"><b>Price:</b> ask me for the latest price list. Prices differ per floor and view, and promos change monthly.</p>
+      <a class="btn btn-dark" href="#inquire" data-pick-unit="2 Bedroom">Get the 2 BR price list</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FLOOR PLANS ===================== -->
+<section id="plans">
+  <div class="wrap">
+    <div class="kicker">Baler Tower layouts</div>
+    <h2>Pick your layout</h2>
+    <p class="muted">Floor plans from the official presentation. Message me which one you like and I'll check what's available.</p>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="2br">2 Bedroom</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="3br">3 Bedroom</button>
+    </div>
+
+    <div class="plans" data-panel="2br">
+      <div class="plan"><div class="plan-head"><h3>2 BR</h3><span>38.5 sqm</span></div><img src="images/plan-2br-38-5.jpg" alt="2 BR unit floor plan, 38.5 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-38-5.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
+      <div class="plan"><div class="plan-head"><h3>2 BR</h3><span>39 sqm</span></div><img src="images/plan-2br-39.jpg" alt="2 BR unit floor plan, 39 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-39.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
+      <div class="plan"><div class="plan-head"><h3>2 BR End Unit</h3><span>39.5 sqm</span></div><img src="images/plan-2br-39-5.jpg" alt="2 BR end unit floor plan, 39.5 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-39-5.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
+      <div class="plan"><div class="plan-head"><h3>2 BR End Unit</h3><span>40 sqm</span></div><img src="images/plan-2br-40.jpg" alt="2 BR end unit floor plan, 40 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-40.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
+      <div class="plan"><div class="plan-head"><h3>2 BR End Unit</h3><span>49 sqm</span></div><img src="images/plan-2br-49.jpg" alt="2 BR end unit floor plan, 49 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-49.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
+      <div class="plan"><div class="plan-head"><h3>2 BR Deluxe</h3><span>52 sqm</span></div><img src="images/plan-2br-deluxe-52.jpg" alt="2 BR Deluxe unit floor plan, 52 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-deluxe-52.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
+    </div>
+
+    <div class="plans" data-panel="3br" hidden>
+      <div class="plan"><div class="plan-head"><h3>3 BR</h3><span>64 sqm</span></div><img src="images/plan-3br-64.jpg" alt="3 BR unit floor plan, 64 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-3br-64.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="3 Bedroom">Ask price →</a></div></div>
+      <div class="plan"><div class="plan-head"><h3>3 BR</h3><span>77 sqm</span></div><img src="images/plan-3br-77.jpg" alt="3 BR unit floor plan, 77 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-3br-77.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="3 Bedroom">Ask price →</a></div></div>
+      <div class="plan"><div class="plan-head"><h3>3 BR</h3><span>78 sqm</span></div><img src="images/plan-3br-78.jpg" alt="3 BR unit floor plan, 78 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-3br-78.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="3 Bedroom">Ask price →</a></div></div>
+      <div class="plan"><div class="plan-head"><h3>3 BR Deluxe</h3><span>87.5 sqm</span></div><img src="images/plan-3br-deluxe-87-5.jpg" alt="3 BR Deluxe unit floor plan, 87.5 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-3br-deluxe-87-5.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="3 Bedroom">Ask price →</a></div></div>
+    </div>
+
+    <div class="plans" style="margin-top:12px">
+      <div class="plan help">
+        <div><h3>Not sure which one?</h3><p>Tell me your budget, family size and plans for the unit, and I'll shortlist the available units with the computation for each.</p></div>
+        <a class="btn" href="#inquire" data-pick-unit="Not sure yet">Help me choose</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICES & PAYMENT (on request until the official price list arrives) ===================== -->
+<section id="prices" style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Prices and payment terms</div>
+    <h2>Get the latest price list</h2>
+    <!-- PLACEHOLDER: when the dated Federal Land price list and sample computation arrive,
+         this block becomes the unit price cards and the payment options breakdown. -->
+    <div class="pricebox">
+      <ul>
+        <li>Current price list and available units</li>
+        <li>Payment terms and this month's promos</li>
+        <li>A sample computation for the unit you like</li>
+        <li>Reservation fee and requirements</li>
+      </ul>
+      <a class="btn btn-dark" href="#inquire">Send me the price list</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MODEL UNITS ===================== -->
+<section id="model" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="kicker">Model units</div>
+    <h2>See how it lives</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="m2">2 Bedroom</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="m3">3 Bedroom</button>
+    </div>
+    <div class="strip" data-panel="m2">
+      <figure><img src="images/2br-model-1.jpg" alt="2 bedroom model unit living area" width="1299" height="866" loading="lazy"><figcaption>Living area</figcaption></figure>
+      <figure><img src="images/2br-model-2.jpg" alt="2 bedroom model unit dining and kitchen" width="1559" height="1040" loading="lazy"><figcaption>Dining and kitchen</figcaption></figure>
+      <figure><img src="images/2br-model-3.jpg" alt="2 bedroom model unit kitchen" width="1299" height="866" loading="lazy"><figcaption>Kitchen</figcaption></figure>
+      <figure><img src="images/2br-model-4.jpg" alt="2 bedroom model unit master bedroom" width="1299" height="866" loading="lazy"><figcaption>Bedroom</figcaption></figure>
+      <figure><img src="images/2br-model-5.jpg" alt="2 bedroom model unit second bedroom set up as a kids' room" width="1299" height="866" loading="lazy"><figcaption>Second bedroom</figcaption></figure>
+      <figure><img src="images/2br-model-6.jpg" alt="2 bedroom model unit toilet and bath" width="1299" height="866" loading="lazy"><figcaption>Toilet and bath</figcaption></figure>
+    </div>
+    <div class="strip" data-panel="m3" hidden>
+      <figure><img src="images/3br-model-1.jpg" alt="3 bedroom model unit living area" width="1299" height="866" loading="lazy"><figcaption>Living area</figcaption></figure>
+      <figure><img src="images/3br-model-2.jpg" alt="3 bedroom model unit dining area" width="1299" height="866" loading="lazy"><figcaption>Dining area</figcaption></figure>
+      <figure><img src="images/3br-model-3.jpg" alt="3 bedroom model unit kitchen" width="1299" height="866" loading="lazy"><figcaption>Kitchen</figcaption></figure>
+      <figure><img src="images/3br-model-4.jpg" alt="3 bedroom model unit master bedroom" width="1299" height="866" loading="lazy"><figcaption>Master bedroom</figcaption></figure>
+      <figure><img src="images/3br-model-5.jpg" alt="3 bedroom model unit bedroom with study desk" width="1299" height="866" loading="lazy"><figcaption>Bedroom with study nook</figcaption></figure>
+      <figure><img src="images/3br-model-6.jpg" alt="3 bedroom model unit bedroom" width="1299" height="866" loading="lazy"><figcaption>Bedroom</figcaption></figure>
+      <figure><img src="images/3br-model-7.jpg" alt="3 bedroom model unit bedroom" width="1299" height="866" loading="lazy"><figcaption>Bedroom</figcaption></figure>
+    </div>
+    <p class="small muted" style="margin-top:6px">Swipe to see more. Model unit photos; furniture and decor are for display only.</p>
+    <p style="margin-top:14px"><a class="btn btn-line" href="#inquire">Visit the model unit</a></p>
+  </div>
+</section>
+
+<!-- ===================== WHY PALM BEACH WEST ===================== -->
+<section class="why" id="why" style="background:var(--cream)">
+  <div class="wrap why-grid">
+    <div>
+      <figure>
+        <img src="images/towers-render.jpg" alt="Palm Beach West towers at sunset" width="1600" height="1333" loading="lazy">
+        <span class="tag">Artist's perspective</span>
+      </figure>
+      <div class="facts">
+        <div><b>4</b><span>mid-rise towers: Misibis, Siargao, Coron, Baler</span></div>
+        <div><b>7,937 sqm</b><span>land area</span></div>
+        <div><b>14–18</b><span>units per floor only</span></div>
+        <div><b>3</b><span>elevators per tower</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="kicker">Why Palm Beach West</div>
+      <h2>Resort living inside Met Park</h2>
+      <p class="muted">A pet-friendly, mid-rise, resort-inspired community between Roxas and Macapagal Blvd, Pasay City, within the Met Park community.</p>
+      <ul class="reasons" style="margin-top:14px">
+        <li>Resort-inspired home with a 2nd floor amenity podium</li>
+        <li>Pet-friendly</li>
+        <li>Near the airport, malls and casinos</li>
+        <li>Low density: few units per floor</li>
+        <li>Larger layouts</li>
+        <li>Met Park township</li>
+        <li>Move-in ready</li>
+      </ul>
+      <p style="margin-top:16px"><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Palm+Beach+West+Met+Park+Pasay" target="_blank" rel="noopener">Open in Google Maps</a></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <h3 class="sub-h">What's nearby</h3>
+    <div class="near">
+      <div><b>Airports</b><p>NAIA · Manila Domestic Airport · Villamor Airbase</p></div>
+      <div><b>Shopping</b><p>Met Live · Mall of Asia</p></div>
+      <div><b>Entertainment</b><p>City of Dreams · Solaire · Resorts World · CCP · Star City · Manila Ocean Park</p></div>
+      <div><b>Events</b><p>SMX Convention Center · World Trade Center · PICC · MOA Arena</p></div>
+      <div><b>Schools</b><p>De La Salle University · St. Scholastica's College · Singapore School Manila · UP Manila</p></div>
+      <div><b>Hospitals</b><p>Philippine General Hospital · San Juan De Dios · Manila Adventist · Manila Doctors</p></div>
+      <div><b>Offices</b><p>One E-com Center · Two E-com Center · Double Dragon</p></div>
+      <div><b>Churches</b><p>Baclaran Church · Shrine of Jesus Christ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AMENITIES (actual photos) ===================== -->
+<section id="amenities">
+  <div class="wrap">
+    <div class="kicker">Amenities</div>
+    <h2>Every day feels like a resort day</h2>
+    <div class="strip">
+      <figure><img src="images/aerial-pool.jpg" alt="Palm Beach West pools and landscaped gardens between the towers" width="1296" height="972" loading="lazy"><figcaption>Adult and kiddie pools · Actual photo</figcaption></figure>
+      <figure><img src="images/garden-pool.jpg" alt="Pool deck with lounge chairs and palm trees" width="1197" height="1197" loading="lazy"><figcaption>Pool deck · Actual photo</figcaption></figure>
+      <figure><img src="images/playground.jpg" alt="Kiddie play area with slides" width="1262" height="842" loading="lazy"><figcaption>Kiddie play area · Actual photo</figcaption></figure>
+      <figure><img src="images/garden-walk.jpg" alt="Garden walkway between the towers" width="1346" height="837" loading="lazy"><figcaption>Gardens and promenade · Actual photo</figcaption></figure>
+      <figure><img src="images/fitness-gym.jpg" alt="Fitness gym" width="1239" height="929" loading="lazy"><figcaption>Fitness gym · Actual photo</figcaption></figure>
+      <figure><img src="images/game-room.jpg" alt="Game room with billiard table" width="1262" height="842" loading="lazy"><figcaption>Game room · Actual photo</figcaption></figure>
+      <figure><img src="images/lobby-siargao.jpg" alt="Siargao tower lobby with reception desk" width="1199" height="1196" loading="lazy"><figcaption>Tower lobby · Actual photo</figcaption></figure>
+      <figure><img src="images/lounge-1.jpg" alt="Lobby lounge seating area" width="1239" height="929" loading="lazy"><figcaption>Lounge · Actual photo</figcaption></figure>
+      <figure><img src="images/mail-room.jpg" alt="Mail room" width="1222" height="917" loading="lazy"><figcaption>Mail room · Actual photo</figcaption></figure>
+    </div>
+    <p class="small muted" style="margin-top:6px">Swipe to see more.</p>
+
+    <div class="feature-cols">
+      <div>Adult and kiddie pools, pool deck</div>
+      <div>Fitness gyms and function rooms</div>
+      <div>Game room and reading lounge</div>
+      <div>Kiddie playroom and day care center</div>
+      <div>Kiddie play areas and al fresco areas</div>
+      <div>Promenade, garden lanai and pavilions</div>
+      <div>Meditation gardens and jogging path</div>
+      <div>24-hour security, CCTV, FDAS and fire suppression</div>
+      <div>Standby power generator and mail room</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== UNIT DELIVERABLES ===================== -->
+<section id="included" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="kicker">Baler Tower</div>
+    <h2>What comes with your unit</h2>
+    <p class="muted">Standard unit deliverables, from the official presentation.</p>
+    <div class="deliv">
+      <div class="deliv-row"><h4>Living &amp; dining</h4><dl><dt>Floor</dt><dd>60 x 60 cm homogenous tiles</dd><dt>Wall</dt><dd>Painted plaster, painted wood baseboard</dd><dt>Ceiling</dt><dd>Painted plaster under-slab</dd><dt>Others</dt><dd>Telephone and cable TV provisions</dd></dl></div>
+      <div class="deliv-row"><h4>Kitchen</h4><dl><dt>Floor</dt><dd>60 x 60 cm homogenous tiles</dd><dt>Wall</dt><dd>Painted plaster, painted wood baseboard</dd><dt>Ceiling</dt><dd>Painted moisture-resistant gypsum board</dd><dt>Others</dt><dd>Granite countertop with backsplash on modular base cabinets, sink, faucet and grease trap</dd></dl></div>
+      <div class="deliv-row"><h4>Bedroom</h4><dl><dt>Floor</dt><dd>6 x 36 in synthetic planks, wood grain</dd><dt>Wall</dt><dd>Painted plaster and gypsum board partitions, painted wood baseboard</dd><dt>Ceiling</dt><dd>Painted plaster under-slab</dd></dl></div>
+      <div class="deliv-row"><h4>Toilet &amp; bath</h4><dl><dt>Floor</dt><dd>30 x 30 cm homogenous tiles</dd><dt>Wall</dt><dd>30 x 30 cm homogenous tiles</dd><dt>Ceiling</dt><dd>Painted moisture-resistant gypsum board</dd><dt>Others</dt><dd>Half-pedestal lavatory, water closet, shower set with provision for water heater</dd></dl></div>
+      <div class="deliv-row"><h4>Balcony</h4><dl><dt>Floor</dt><dd>30 x 30 cm ceramic tiles</dd><dt>Wall</dt><dd>Painted plaster</dd><dt>Others</dt><dd>Metal railing in paint finish</dd></dl></div>
+    </div>
+    <div class="upgrade"><b>3 BR units in the High Zone</b> come with upgraded deliverables: laminated wood bedroom floors, bedroom closets for all bedrooms, kitchen overhead cabinets, and full-height tiles at the shower area.</div>
+  </div>
+</section>
+
+<!-- ===================== INQUIRY FORM ===================== -->
+<section class="inquire" id="inquire">
+  <div class="wrap">
+    <div class="kicker">By appointment</div>
+    <h2>Book a viewing or get the price list</h2>
+    <p class="muted">Tell me what you're looking for and I'll prepare:</p>
+    <ul class="perks">
+      <li>A model unit viewing at Palm Beach West, or a presentation online</li>
+      <li>The latest price list and available units</li>
+      <li>A payment computation for the unit you like</li>
+    </ul>
+    <form id="lead-form" novalidate>
+      <div><label for="name">Full name *</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="mobile">Mobile number *</label><input id="mobile" name="mobile" type="tel" autocomplete="tel" inputmode="tel" placeholder="09XX XXX XXXX or +63..." required></div>
+      <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
+      <div><label for="unit">Preferred unit</label>
+        <select id="unit" name="preferred_unit">
+          <option value="">Select one</option>
+          <option>2 Bedroom</option>
+          <option>3 Bedroom</option>
+          <option>Not sure yet</option>
+        </select></div>
+      <div><label for="request">What would you like?</label>
+        <select id="request" name="request">
+          <option>Price list and computation</option>
+          <option>Model unit viewing</option>
+          <option>Online presentation</option>
+        </select></div>
+      <div><label for="channel">Best way to reach you</label>
+        <select id="channel" name="channel">
+          <option>Call or SMS</option>
+          <option>Email</option>
+          <option data-channel="viber">Viber</option>
+          <option data-channel="whatsapp">WhatsApp</option>
+          <option data-channel="messenger">Messenger</option>
+        </select></div>
+      <div><label for="location">Where are you based now?</label><input id="location" name="location" type="text" placeholder="e.g. Makati, PH or Dubai, UAE" autocomplete="country-name"></div>
+      <div><label for="purpose">Main purpose</label>
+        <select id="purpose" name="purpose">
+          <option value="">Select one</option>
+          <option>Home to live in</option>
+          <option>Investment / rental</option>
+          <option>Both</option>
+        </select></div>
+      <div><label for="timeline">When are you planning to buy?</label>
+        <select id="timeline" name="timeline">
+          <option value="">Select one</option>
+          <option>Within 1 month</option>
+          <option>1 to 3 months</option>
+          <option>3 to 6 months</option>
+          <option>Just exploring</option>
+        </select></div>
+      <div><label for="contact_time">Best time to contact you</label>
+        <select id="contact_time" name="contact_time">
+          <option value="">Any time</option>
+          <option>Morning</option>
+          <option>Afternoon</option>
+          <option>Evening</option>
+          <option>Weekends only</option>
+        </select></div>
+      <div class="full"><label for="source">Where did you find me?</label>
+        <select id="source" name="source">
+          <option value="">Select one</option>
+          <option>Facebook</option>
+          <option>Instagram</option>
+          <option>TikTok</option>
+          <option>Referral from a friend</option>
+          <option>Google</option>
+          <option>Other</option>
+        </select></div>
+      <div class="full"><label for="message">Questions or notes (optional)</label><textarea id="message" name="message" rows="3"></textarea></div>
+
+      <!-- Honeypot field: hidden from people, bots tend to fill it in -->
+      <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+      <label class="consent full">
+        <input type="checkbox" id="consent" name="consent" required>
+        <span>I agree to be contacted about Palm Beach West and consent to the processing of my details under the Data Privacy Act of 2012. My details are used only by Joehanna Adolfo to answer this inquiry and are never sold or shared.</span>
+      </label>
+      <div class="full"><button class="btn" type="submit" id="submit-btn" style="width:100%">Send my request</button></div>
+      <div id="form-status" class="full" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== SELLER ===================== -->
+<section id="seller">
+  <div class="wrap">
+    <div class="seller-card">
+      <div class="seller-top">
+        <img class="seller-photo" src="images/joehanna.jpg" alt="Joehanna Adolfo, property seller for Palm Beach West" width="480" height="600" loading="lazy">
+        <div>
+          <div class="kicker">Your property consultant</div>
+          <h2>Joehanna Adolfo</h2>
+          <!-- TO CONFIRM: exact title and accreditation wording from Joehanna -->
+          <div class="seller-title">Property Seller · Horizon Land, a Federal Land company</div>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:12px">I'll walk you through the layouts, the latest price list and the payment terms, and arrange your model unit viewing, so you can decide with complete numbers.</p>
+      <div class="contact">
+        <a class="btn btn-dark" href="tel:+639459836513" data-contact="phone">Call 0945 983 6513</a>
+        <a class="btn btn-line" href="sms:+639459836513" data-contact="sms">Text me</a>
+        <a class="btn" href="#" data-contact="whatsapp" target="_blank" rel="noopener" hidden>WhatsApp</a>
+        <a class="btn" href="#" data-contact="viber" data-viber hidden>Viber</a>
+        <a class="btn" href="#" data-contact="messenger" target="_blank" rel="noopener" hidden>Messenger</a>
+        <a class="btn btn-line" href="mailto:joehanna.federallandph@gmail.com?subject=Palm%20Beach%20West%20inquiry" data-contact="email">Email</a>
+      </div>
+      <p class="small muted" style="margin-top:10px">Mobile: 0945 983 6513 · Email: joehanna.federallandph@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <!-- TO CONFIRM: seller title and developer wording -->
+    <p><strong>Disclaimer.</strong> This page is maintained by Joehanna Adolfo, property seller of Palm Beach West. It is not the official website of Horizon Land or Federal Land.</p>
+    <p>Prices, payment terms, promos and availability are subject to change without prior notice and are confirmed only through an official computation. Photos labeled "Actual photo" show the completed development; model unit furniture is for display only; other images are artist's perspectives.</p>
+    <p>© <span id="year"></span> Joehanna Adolfo</p>
+  </div>
+</footer>
+
+<!-- ===================== STICKY MOBILE ACTION BAR ===================== -->
+<nav class="actionbar" aria-label="Quick contact">
+  <a href="tel:+639459836513" data-contact="phone">Call</a>
+  <a href="sms:+639459836513" data-contact="sms">Text</a>
+  <a class="primary" href="#inquire">Book a viewing</a>
+</nav>
+
+<script>
+/* =====================================================================
+   CONFIGURATION
+   Contact channels stay hidden until confirmed. To turn one on later,
+   fill in the value below; every button and fallback updates automatically.
+   ===================================================================== */
+const CONFIG = {
+  // Lead endpoints (website-only phase: leave both blank)
+  N8N_WEBHOOK_URL: "",
+  APPS_SCRIPT_URL: "",
+  N8N_TIMEOUT_MS: 8000,
+
+  PHONE_E164: "+639459836513",
+  PHONE_DISPLAY: "0945 983 6513",
+  EMAIL: "joehanna.federallandph@gmail.com",
+
+  // TO CONFIRM with Joehanna. Leave blank to keep the button hidden.
+  WHATSAPP_NUMBER: "",   // digits only, e.g. "639459836513"
+  VIBER_NUMBER: "",      // E.164, e.g. "+639459836513"
+  MESSENGER_URL: ""      // e.g. "https://m.me/<page-username>" (test on a phone first)
+};
+
+const FIRST_NAME = "Joehanna";
+
+/* Turn on the optional channels only when they are configured */
+(function applyContacts() {
+  const on = {
+    whatsapp: !!CONFIG.WHATSAPP_NUMBER,
+    viber: !!CONFIG.VIBER_NUMBER,
+    messenger: !!CONFIG.MESSENGER_URL
+  };
+  document.querySelectorAll('[data-contact="whatsapp"]').forEach(a => { if (on.whatsapp) { a.href = "https://wa.me/" + CONFIG.WHATSAPP_NUMBER; a.hidden = false; } });
+  document.querySelectorAll('[data-contact="viber"]').forEach(a => { if (on.viber) { a.href = "viber://chat?number=" + encodeURIComponent(CONFIG.VIBER_NUMBER); a.hidden = false; } });
+  document.querySelectorAll('[data-contact="messenger"]').forEach(a => { if (on.messenger) { a.href = CONFIG.MESSENGER_URL; a.hidden = false; } });
+  // Remove unconfirmed channels from the "best way to reach you" dropdown
+  document.querySelectorAll("#channel option[data-channel]").forEach(o => { if (!on[o.dataset.channel]) o.remove(); });
+})();
+
+/* Tabs (floor plans and model unit galleries) */
+document.querySelectorAll(".tabs").forEach(group => {
+  const tabs = group.querySelectorAll(".tab");
+  tabs.forEach(tab => tab.addEventListener("click", () => {
+    tabs.forEach(t => {
+      const active = t === tab;
+      t.setAttribute("aria-selected", active ? "true" : "false");
+      document.querySelector('[data-panel="' + t.dataset.tab + '"]').hidden = !active;
+    });
+  }));
+});
+
+/* "Ask price" buttons pre-select the unit type in the form */
+document.querySelectorAll("[data-pick-unit]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const sel = document.getElementById("unit");
+    if (sel) sel.value = btn.getAttribute("data-pick-unit");
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Viber only works when the app is installed. If it does not open, show the number with a copy button. */
+const viberHelp = document.createElement("div");
+viberHelp.className = "viber-help";
+viberHelp.hidden = true;
+viberHelp.setAttribute("role", "dialog");
+viberHelp.setAttribute("aria-label", "Viber contact");
+viberHelp.innerHTML = "<p><b>Viber didn't open?</b> Message me on Viber at <b>" + CONFIG.PHONE_DISPLAY + "</b>.</p>" +
+  '<div class="vh-actions"><button type="button" class="btn" data-copy-viber>Copy number</button>' +
+  '<button type="button" class="btn btn-dark" data-close-viber>Close</button></div>';
+document.body.appendChild(viberHelp);
+viberHelp.addEventListener("click", e => {
+  if (e.target.closest("[data-close-viber]")) viberHelp.hidden = true;
+  const copyBtn = e.target.closest("[data-copy-viber]");
+  if (copyBtn) {
+    try { navigator.clipboard.writeText(CONFIG.VIBER_NUMBER || CONFIG.PHONE_E164).then(() => { copyBtn.textContent = "Copied!"; }, () => { copyBtn.textContent = CONFIG.PHONE_DISPLAY; }); }
+    catch (err) { copyBtn.textContent = CONFIG.PHONE_DISPLAY; }
+  }
+});
+document.addEventListener("click", e => {
+  if (!e.target.closest("[data-viber]")) return;
+  setTimeout(() => { if (document.visibilityState === "visible") viberHelp.hidden = false; }, 1500);
+});
+
+/* Campaign tracking (UTM) so we know which post or ad sent the lead */
+function getTracking() {
+  const p = new URLSearchParams(window.location.search);
+  return {
+    utm_source: p.get("utm_source") || "", utm_medium: p.get("utm_medium") || "",
+    utm_campaign: p.get("utm_campaign") || "", utm_content: p.get("utm_content") || "",
+    referrer: document.referrer || "", page_url: window.location.href
+  };
+}
+
+function makeLeadId() {
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  return "lead-" + Date.now() + "-" + Math.random().toString(36).slice(2, 10);
+}
+
+/* Philippine mobile check: 09XXXXXXXXX, +639XXXXXXXXX, 639XXXXXXXXX; international numbers allowed */
+function normalizeMobile(raw) {
+  const d = raw.replace(/[^\d+]/g, "");
+  if (/^09\d{9}$/.test(d)) return "+63" + d.slice(1);
+  if (/^\+639\d{9}$/.test(d)) return d;
+  if (/^639\d{9}$/.test(d)) return "+" + d;
+  if (/^\+\d{8,15}$/.test(d)) return d;
+  return null;
+}
+
+function esc(s) { return String(s).replace(/[<>&"]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c])); }
+
+function showStatus(type, html) {
+  const el = document.getElementById("form-status");
+  el.className = type;
+  el.innerHTML = html;
+}
+
+async function sendToN8n(payload) {
+  if (!CONFIG.N8N_WEBHOOK_URL) return false;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), CONFIG.N8N_TIMEOUT_MS);
+  try {
+    const res = await fetch(CONFIG.N8N_WEBHOOK_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload), signal: controller.signal });
+    return res.ok;
+  } catch (err) { console.warn("n8n webhook failed, switching to fallback:", err); return false; }
+  finally { clearTimeout(timer); }
+}
+
+/* Google Apps Script fallback: text/plain + no-cors avoids the CORS preflight Apps Script cannot answer */
+async function sendToAppsScript(payload) {
+  if (!CONFIG.APPS_SCRIPT_URL) return false;
+  try {
+    await fetch(CONFIG.APPS_SCRIPT_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
+    return true;
+  } catch (err) { console.error("Fallback also failed:", err); return false; }
+}
+
+/* Ready-to-send inquiry text, used when there is no automatic delivery */
+function inquiryText(p) {
+  return [
+    "Hi " + FIRST_NAME + ", I'm interested in Palm Beach West.",
+    "Name: " + p.name,
+    "Mobile: " + p.mobile,
+    p.email ? "Email: " + p.email : "",
+    p.preferred_unit ? "Unit: " + p.preferred_unit : "",
+    p.request ? "Request: " + p.request : "",
+    p.location ? "Based in: " + p.location : "",
+    p.purpose ? "Purpose: " + p.purpose : "",
+    p.timeline ? "Timeline: " + p.timeline : "",
+    p.contact_time ? "Best time: " + p.contact_time : "",
+    p.message ? "Notes: " + p.message : ""
+  ].filter(Boolean).join("\n");
+}
+
+/* No lead is lost: offer one-tap sending through every confirmed channel.
+   SMS and email always work; WhatsApp, Viber and Messenger appear once configured. */
+function showDirectSend(p, intro) {
+  const text = inquiryText(p);
+  try { navigator.clipboard && navigator.clipboard.writeText(text).catch(() => {}); } catch (e) {}
+  const body = encodeURIComponent(text);
+  let buttons = "";
+  if (CONFIG.WHATSAPP_NUMBER) buttons += '<a class="btn" href="https://wa.me/' + CONFIG.WHATSAPP_NUMBER + "?text=" + body + '" target="_blank" rel="noopener">Send on WhatsApp</a>';
+  buttons += '<a class="btn" href="sms:' + CONFIG.PHONE_E164 + "?&body=" + body + '">Send by text (SMS)</a>';
+  buttons += '<a class="btn btn-dark" href="mailto:' + CONFIG.EMAIL + "?subject=" + encodeURIComponent("Palm Beach West inquiry") + "&body=" + body + '">Send by email</a>';
+  if (CONFIG.VIBER_NUMBER) buttons += '<a class="btn btn-dark" href="viber://chat?number=' + encodeURIComponent(CONFIG.VIBER_NUMBER) + '" data-viber>Send on Viber</a>';
+  if (CONFIG.MESSENGER_URL) buttons += '<a class="btn btn-dark" href="' + CONFIG.MESSENGER_URL + '" target="_blank" rel="noopener">Send on Messenger</a>';
+  showStatus("ok", intro + '<div class="direct-send">' + buttons + '</div>' +
+    '<p class="small" style="margin-top:8px">Your details are already typed in the message. Your inquiry is also copied, so you can paste it anywhere. Or call me at ' + CONFIG.PHONE_DISPLAY + '.</p>');
+}
+
+document.getElementById("lead-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById("submit-btn");
+  if (form.website.value) { showStatus("ok", "Thank you!"); return; } // spam trap
+
+  const name = form.name.value.trim();
+  const mobile = normalizeMobile(form.mobile.value.trim());
+  const email = form.email.value.trim();
+  if (!name) { showStatus("err", "Please enter your name."); form.name.focus(); return; }
+  if (!mobile) { showStatus("err", "Please enter a valid mobile number, for example 0917 123 4567."); form.mobile.focus(); return; }
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showStatus("err", "Please check your email address."); form.email.focus(); return; }
+  if (!form.consent.checked) { showStatus("err", "Please tick the consent box so I can contact you."); return; }
+
+  const payload = {
+    lead_id: makeLeadId(), submitted_at: new Date().toISOString(), project: "Palm Beach West",
+    name, mobile, email,
+    preferred_unit: form.preferred_unit.value, request: form.request.value, channel: form.channel.value,
+    location: form.location.value.trim(), purpose: form.purpose.value, timeline: form.timeline.value,
+    contact_time: form.contact_time.value, source: form.source.value, message: form.message.value.trim(),
+    consent: true, ...getTracking()
+  };
+  const first = esc(name.split(" ")[0]);
+
+  // Website-only phase: no endpoints yet, so the visitor sends the inquiry directly
+  if (!CONFIG.N8N_WEBHOOK_URL && !CONFIG.APPS_SCRIPT_URL) {
+    showDirectSend(payload, "<strong>One last step, " + first + ":</strong> tap a button below to send me your request.");
+    return;
+  }
+
+  btn.disabled = true; btn.textContent = "Sending...";
+  let delivered = await sendToN8n(payload);
+  if (!delivered) { payload.delivery = "fallback"; delivered = await sendToAppsScript(payload); }
+  btn.disabled = false; btn.textContent = "Send my request";
+
+  if (delivered) {
+    form.reset();
+    showStatus("ok", "<strong>Thank you, " + first + "!</strong> I received your request and will get back to you shortly.");
+  } else {
+    showDirectSend(payload, "<strong>Sorry, the form could not be sent.</strong> Please tap a button below so your request still reaches me.");
+  }
+});
+</script>
+</body>
+</html>
