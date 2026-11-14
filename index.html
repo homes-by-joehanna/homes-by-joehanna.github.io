@@ -205,6 +205,18 @@
   @media(min-width:860px){.actionbar{display:none}body{padding-bottom:0}}
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 
+  /* ===== Booking: two paths into the same Cal.com event ===== */
+  .book{background:var(--paper)}
+  .book-grid{display:grid;gap:12px;margin-top:20px}
+  @media(min-width:760px){.book-grid{grid-template-columns:1fr 1fr}}
+  .book-card{border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;background:var(--cream)}
+  .book-card .who{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);font-weight:600}
+  .book-card h3{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--head);line-height:1.15}
+  .book-card ul{list-style:none;display:grid;gap:6px;font-size:14.5px;margin-bottom:6px}
+  .book-card li::before{content:"✓";color:var(--gold-ink);font-weight:600;margin-right:8px}
+  .book-card .btn{margin-top:auto}
+  .book-note{font-size:13px;color:var(--muted);margin-top:12px}
+
   /* ===== LIGHT THEME OVERRIDES: no dark blocks, dark text on soft backgrounds ===== */
   h2{color:var(--head)}
   .btn{background:var(--gold);color:#fff}
@@ -259,7 +271,7 @@
   <div class="wrap">
     <nav class="nav">
       <a class="logo" href="#top">PALM BEACH<span>WEST · MET PARK</span></a>
-      <a class="mini" href="#inquire">Book a viewing</a>
+      <a class="mini" href="#book">Book a viewing</a>
     </nav>
     <div class="hero-grid">
       <div>
@@ -269,7 +281,7 @@
         <h1>Your resort-inspired home in the <em>Bay Area</em></h1>
         <p class="sub">2 and 3 bedroom homes between Roxas and Macapagal Blvd, near NAIA, Mall of Asia and the Bay City resorts.</p>
         <div class="ctas">
-          <a class="btn" href="#inquire">Book a model unit viewing</a>
+          <a class="btn" href="#book">Book a viewing</a>
           <a class="btn btn-outline" href="#plans">See floor plans</a>
         </div>
       </div>
@@ -387,7 +399,7 @@
       <figure><img src="images/3br-model-7.jpg" alt="3 bedroom model unit bedroom" width="1299" height="866" loading="lazy"><figcaption>Bedroom</figcaption></figure>
     </div>
     <p class="small muted" style="margin-top:6px">Swipe to see more. Model unit photos; furniture and decor are for display only.</p>
-    <p style="margin-top:14px"><a class="btn btn-line" href="#inquire">Visit the model unit</a></p>
+    <p style="margin-top:14px"><a class="btn btn-line" href="#book">Visit the model unit</a></p>
   </div>
 </section>
 
@@ -486,11 +498,45 @@
   </div>
 </section>
 
+<!-- ===================== BOOKING (Cal.com) =====================
+     Both cards open the SAME Cal.com event. The "notes" prefill tells Joehanna
+     which path the buyer came from. Test on the live site that the note appears. -->
+<section class="book" id="book">
+  <div class="wrap">
+    <div class="kicker">Book a schedule</div>
+    <h2>Pick a time that works for you</h2>
+    <p class="muted">Choose the option that fits where you are now. You'll get a confirmation by email right after booking.</p>
+    <div class="book-grid">
+      <div class="book-card">
+        <div class="who">Abroad or OFW</div>
+        <h3>Online presentation</h3>
+        <ul>
+          <li>One-on-one via Google Meet</li>
+          <li>Walk-through of layouts, model units and payment terms</li>
+          <li>Pick a time that suits your time zone</li>
+        </ul>
+        <a class="btn" href="https://cal.com/adolfofederal/palm-beach-west" data-cal="Online presentation (abroad / OFW)" target="_blank" rel="noopener">Book an online presentation</a>
+      </div>
+      <div class="book-card">
+        <div class="who">In the Philippines</div>
+        <h3>Site and showroom viewing</h3>
+        <ul>
+          <li>Visit Palm Beach West and the model unit</li>
+          <li>See the amenities and the actual building</li>
+          <li>Get your computation on the spot</li>
+        </ul>
+        <a class="btn" href="https://cal.com/adolfofederal/palm-beach-west" data-cal="Site / showroom viewing (in the Philippines)" target="_blank" rel="noopener">Book a site viewing</a>
+      </div>
+    </div>
+    <p class="book-note">Booking opens Joehanna's calendar in a new tab. Prefer to message first? <a href="#inquire">Send a request instead</a> or call 0945 983 6513.</p>
+  </div>
+</section>
+
 <!-- ===================== INQUIRY FORM ===================== -->
 <section class="inquire" id="inquire">
   <div class="wrap">
     <div class="kicker">By appointment</div>
-    <h2>Book a viewing or get the price list</h2>
+    <h2>Get the price list or ask a question</h2>
     <p class="muted">Tell me what you're looking for and I'll prepare:</p>
     <ul class="perks">
       <li>A model unit viewing at Palm Beach West, or a presentation online</li>
@@ -612,7 +658,7 @@
 <nav class="actionbar" aria-label="Quick contact">
   <a href="tel:+639459836513" data-contact="phone">Call</a>
   <a href="sms:+639459836513" data-contact="sms">Text</a>
-  <a class="primary" href="#inquire">Book a viewing</a>
+  <a class="primary" href="#book">Book a viewing</a>
 </nav>
 
 <script>
@@ -634,8 +680,21 @@ const CONFIG = {
   // TO CONFIRM with Joehanna. Leave blank to keep the button hidden.
   WHATSAPP_NUMBER: "",   // digits only, e.g. "639459836513"
   VIBER_NUMBER: "",      // E.164, e.g. "+639459836513"
-  MESSENGER_URL: ""      // e.g. "https://m.me/<page-username>" (test on a phone first)
+  MESSENGER_URL: "",     // e.g. "https://m.me/<page-username>" (test on a phone first)
+
+  // Cal.com booking page (Joehanna's account). Both booking cards use this one event.
+  CAL_URL: "https://cal.com/adolfofederal/palm-beach-west"
 };
+
+/* Booking cards: same Cal.com event, with a prefilled note that tells Joehanna
+   which path the buyer chose. UTM source is passed along when present. */
+document.querySelectorAll("[data-cal]").forEach(a => {
+  const url = new URL(CONFIG.CAL_URL);
+  url.searchParams.set("notes", "Booking type: " + a.dataset.cal);
+  const utm = new URLSearchParams(window.location.search).get("utm_source");
+  if (utm) url.searchParams.set("utm_source", utm);
+  a.href = url.toString();
+});
 
 const FIRST_NAME = "Joehanna";
 
