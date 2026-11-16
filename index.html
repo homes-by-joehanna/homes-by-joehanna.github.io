@@ -181,7 +181,7 @@
   .direct-send{display:grid;gap:8px;margin-top:12px}
   @media(min-width:760px){.direct-send{grid-template-columns:repeat(3,1fr)}}
   button[disabled]{opacity:.6;cursor:wait}
-  .viber-help{position:fixed;left:12px;right:12px;bottom:76px;z-index:30;max-width:420px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 10px 30px rgba(0,0,0,.18);padding:16px;font-size:15px}
+  .viber-help{position:fixed;left:12px;right:12px;bottom:16px;z-index:30;max-width:420px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 10px 30px rgba(0,0,0,.18);padding:16px;font-size:15px}
   .vh-actions{display:flex;gap:8px;margin-top:10px}
   .vh-actions .btn{flex:1;padding:12px 10px;font-size:14px}
 
@@ -198,11 +198,21 @@
   footer p+p{margin-top:9px}
   footer strong{color:#F6E9EE}
 
-  /* ===== Sticky mobile action bar ===== */
-  .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:grid;grid-template-columns:1fr 1fr 1.4fr;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(0,0,0,.08)}
-  .actionbar a{display:flex;align-items:center;justify-content:center;padding:15px 6px;min-height:52px;font-size:14px;font-weight:600;text-decoration:none;color:var(--deep)}
-  .actionbar a.primary{background:var(--gold)}
-  @media(min-width:860px){.actionbar{display:none}body{padding-bottom:0}}
+  /* ===== Top contact bar (phones only): pinned to the top, four equal-width buttons ===== */
+  .topbar{position:fixed;left:0;right:0;top:0;z-index:40;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+  .topbar a{display:flex;align-items:center;justify-content:center;gap:4px;min-height:44px;padding:0 4px;font-size:12px;font-weight:600;text-decoration:none;color:var(--head);white-space:nowrap}
+  .topbar a + a{border-left:1px solid var(--line)}  /* thin dividers between buttons */
+  .topbar a.primary{background:var(--gold);color:#fff}
+  @media(max-width:859px){
+    body{padding-top:44px;padding-bottom:0}
+    html{scroll-padding-top:56px}  /* section links stop below the bar */
+  }
+  @media(min-width:860px){.topbar{display:none}body{padding-bottom:0}}
+
+  /* ===== Floating "Book appointment" pill (desktop only) ===== */
+  .book-fab{position:fixed;right:22px;bottom:22px;z-index:30;display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:14px 22px;border-radius:999px;box-shadow:0 10px 26px -8px rgba(90,46,62,.55)}
+  .book-fab:hover{background:var(--deep-2)}
+  @media(max-width:859px){.book-fab{display:none}}  /* phones use the top bar instead */
   @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 
   /* ===== Booking: two paths into the same Cal.com event ===== */
@@ -210,12 +220,180 @@
   .book-grid{display:grid;gap:12px;margin-top:20px}
   @media(min-width:760px){.book-grid{grid-template-columns:1fr 1fr}}
   .book-card{border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;background:var(--cream)}
-  .book-card .who{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);font-weight:600}
+  .book-card .who{align-self:flex-start;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;font-weight:700;padding:6px 12px;border-radius:999px}
+  /* Audience badges: blue for buyers abroad, red for buyers in the Philippines, with matching top borders */
+  .book-card.abroad{border-top:5px solid #1F5FBF}
+  .book-card.abroad .who{background:#1F5FBF}
+  .book-card.local{border-top:5px solid #C62828}
+  .book-card.local .who{background:#C62828}
   .book-card h3{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--head);line-height:1.15}
   .book-card ul{list-style:none;display:grid;gap:6px;font-size:14.5px;margin-bottom:6px}
   .book-card li::before{content:"✓";color:var(--gold-ink);font-weight:600;margin-right:8px}
   .book-card .btn{margin-top:auto}
   .book-note{font-size:13px;color:var(--muted);margin-top:12px}
+
+
+  /* ===== Rail mini map (hand-built in HTML/CSS, no third-party graphics) ===== */
+  .rail{margin-top:30px;background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:22px 18px 18px;position:relative;overflow:hidden}
+  .rail::before{content:"";position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:var(--sand);opacity:.7}
+  .rail-head{position:relative;display:flex;align-items:center;gap:10px}
+  .rail-badge{width:42px;height:42px;border-radius:14px;background:var(--head);display:grid;place-items:center;font-size:22px;flex:none}
+  .rail h3{font-family:var(--serif);font-size:24px;color:var(--head);font-weight:600;line-height:1.1}
+  .rail-sub{font-size:13px;color:var(--muted)}
+  .legend{position:relative;display:flex;flex-wrap:wrap;gap:8px 14px;margin:14px 0 6px;font-size:12.5px;color:var(--muted)}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+  .legend .lo{background:#2E7D5B}
+  .legend .lf{background:#fff;border:2.5px dashed var(--gold)}
+  .legend .lm{background:#F2C230}
+  .rail-track{position:relative;margin:12px 0 0 22px}
+  .stations{list-style:none;position:relative;padding-left:30px}
+  .stations li{position:relative;padding:7px 0;font-size:15px;color:var(--ink);min-height:34px}
+  /* the line: solid green for open LRT-1 stations, dashed rose for future ones */
+  .stations li::after{content:"";position:absolute;left:-21px;top:0;bottom:0;border-left:5px solid #2E7D5B}
+  .stations li:first-child::after{top:50%}
+  .stations li:last-child::after{bottom:50%}
+  .stations li.future::after{border-left:4px dashed var(--gold);left:-20.5px}
+  .stations li::before{content:"";position:absolute;left:-27px;top:50%;width:17px;height:17px;margin-top:-8.5px;border-radius:50%;background:#fff;border:4px solid #2E7D5B;z-index:1;box-sizing:border-box}
+  .stations li.future::before{border:3px dashed var(--gold)}
+  .stations li.more{color:var(--muted);font-size:13px;font-style:italic}
+  .stations li.more::before{width:9px;height:9px;margin-top:-4.5px;left:-23px;border-width:0;background:#2E7D5B}
+  /* transfer station (LRT-1 EDSA <-> MRT-3 Taft Avenue): yellow ring */
+  .stations li.xfer::before{width:21px;height:21px;margin-top:-10.5px;left:-29px;border:5px solid #F2C230;box-shadow:0 0 0 2px #2E7D5B}
+  .st-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+  .st-tag.mrt{background:#FFF3C4;color:#7A5A00}
+  .st-tag.near{background:#E3F1EA;color:#22603F}
+  .st-tag.soon{background:var(--sand);color:var(--gold-ink)}
+  .stations li.home{margin:0;padding:8px 0}
+  .stations li.home::before{width:22px;height:22px;margin-top:-11px;left:-29.5px;border:5px solid var(--gold);background:var(--head)}
+  .home-card{display:flex;align-items:center;gap:10px;background:var(--head);color:#fff;border-radius:16px;padding:12px 14px;box-shadow:0 8px 20px rgba(90,46,62,.25)}
+  .home-card .pin{font-size:26px;animation:bob 2.2s ease-in-out infinite}
+  .home-card b{display:block;font-family:var(--serif);font-size:20px;color:#FBE9E6;font-weight:600;line-height:1.1}
+  .home-card span{font-size:12.5px;color:#EBD3D8}
+  .train{position:absolute;left:-24px;font-size:20px;z-index:2;animation:ride 6s ease-in-out infinite;top:0}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  @keyframes ride{0%{top:-4px}70%,100%{top:var(--ride-end,120px)}}
+  @media (prefers-reduced-motion: reduce){.home-card .pin,.train{animation:none}}
+  .rail-note{position:relative;font-size:11.5px;color:var(--muted);margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+  @media(min-width:860px){.rail{padding:28px 30px}}
+
+  /* ===== At a glance card ===== */
+  .glance{background:var(--paper);padding:40px 0;border-bottom:1px solid var(--line)}
+  .glance-grid{display:grid;gap:14px;margin-top:18px;max-width:640px}
+  .path{border:1px solid var(--line);border-top:5px solid var(--c);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;background:#fff}
+  .path.rfo{--c:#2E7D5B}
+  .path-tag{display:inline-block;align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--c);color:#fff}
+  .path h3{font-family:var(--serif);font-size:26px;color:var(--head);font-weight:600;margin:8px 0 2px;line-height:1.1}
+  .path .lead{font-size:14.5px;color:var(--muted);margin-bottom:10px}
+  .path table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:10px}
+  .path th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;text-align:left;padding:6px 4px}
+  .path td{padding:9px 4px;border-top:1px solid var(--line);vertical-align:top}
+  .path td small{display:block;color:var(--muted);font-size:12px}
+  .path td.num{text-align:right;white-space:nowrap;font-weight:600;color:var(--head)}
+  .path .asof{font-size:12px;color:var(--muted);margin-bottom:14px}
+  .path .btn{margin-top:auto;width:100%;background:#2E7D5B;color:#fff}
+  .path .btn:hover{background:#276b4e}
+
+  /* ===== Unit cards: price on the front, floor plan on the back ===== */
+  .units{display:grid;gap:12px;margin-top:16px}
+  @media(min-width:760px){.units{grid-template-columns:repeat(2,1fr)}}
+  .utag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--sand);color:var(--gold-ink)}
+  .unit{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+  .unit-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:10px}
+  .unit-head h3{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--head);line-height:1.1}
+  .unit-head .size{font-size:13px;color:var(--muted)}
+  .unit-head .price{text-align:right;font-family:var(--serif);font-size:24px;font-weight:600;color:var(--head);white-space:nowrap}
+  .unit-head .price small{display:block;font-family:var(--sans);font-size:12px;letter-spacing:.12em;color:var(--gold-ink);font-weight:600}
+  .row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;font-size:14.5px}
+  .row b{font-weight:600;white-space:nowrap;text-align:right}
+  .row b small{display:block;font-size:11.5px;font-weight:400;color:var(--muted)}
+  .row.save b{color:#2f6b3a}
+  .row.monthly{background:var(--sand);margin:6px -8px 0;padding:10px 8px;border-radius:8px}
+  .row.monthly b{font-size:17px;color:var(--head)}
+  .unit .meta{font-size:12.5px;color:var(--muted);margin-top:10px}
+  .unit.request{display:flex;flex-direction:column;justify-content:space-between;background:var(--sand);border-color:var(--line)}
+  .flip{perspective:1400px;cursor:pointer;border-radius:var(--r)}
+  .flip-inner{display:grid;height:100%;position:relative;transition:transform .6s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+  .flip.flipped .flip-inner{transform:rotateY(180deg)}
+  .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column}
+  .face.back{transform:rotateY(180deg);padding:14px;position:absolute;inset:0;overflow:hidden}
+  .flip-btn{margin-top:auto;min-height:44px;width:100%;background:none;border:0;border-top:1px solid var(--line);font:inherit;font-size:14px;font-weight:600;color:var(--gold-ink);cursor:pointer}
+  .back-actions .flip-btn{width:auto;margin:0;border:0;padding:0 4px}
+  .flip-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .back-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
+  .back-head h3{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--head)}
+  .back-head span{font-size:12px;color:var(--muted);text-align:right}
+  .face.back img{flex:1 1 0;width:100%;height:0;object-fit:contain;background:#fff;border-radius:8px;min-height:0}
+  .back-actions{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:14px;font-weight:600;color:var(--gold-ink)}
+  .back-actions a{color:var(--head);min-height:44px;display:inline-flex;align-items:center;padding:0 4px}
+  @media (prefers-reduced-motion: reduce){.flip-inner{transition:none}}
+
+  /* ===== Stale / expired promo notice (shown automatically) ===== */
+  .stale{background:#FFF6DD;color:#6b5200;border:1px solid #f0dca0;border-radius:var(--r);padding:12px 14px;font-size:14px;margin-bottom:16px}
+
+  /* ===== Discount badges (hidden automatically once the promo or price list expires) ===== */
+  .disc{display:inline-block;background:#C0392B;color:#fff;font-family:var(--sans);font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:999px;vertical-align:middle;margin-left:6px;white-space:nowrap}
+  .disc.soft{background:#FBE3DF;color:#9B2C20;margin-left:2px}
+  .save-line{display:block;font-size:12px;font-weight:600;color:#9B2C20;margin-top:2px}
+
+  /* ===== Payment summary + "Click me" sample computation ===== */
+  .pay-summary{list-style:none;display:grid;gap:8px;margin-top:14px}
+  @media(min-width:760px){.pay-summary{grid-template-columns:repeat(2,1fr)}}
+  .pay-summary li{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+  .pay-summary b{font-family:var(--serif);font-size:21px;color:var(--head);font-weight:600}
+  .pay-summary li>span{font-size:14px;color:var(--muted)}
+  .pay-details{margin-top:22px}
+  .pay-details summary{cursor:pointer;list-style:none;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:76px;padding:18px 20px 14px;margin-top:10px;text-align:center;background:#F2C14E;color:var(--head);border:2px solid var(--head);border-radius:18px;box-shadow:0 6px 0 var(--head);animation:ctaPulse 1.8s ease-in-out infinite}
+  .pay-details summary::-webkit-details-marker{display:none}
+  .pay-details summary:active{transform:translateY(4px);box-shadow:0 2px 0 var(--head)}
+  .cta-pill{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#C0392B;color:#fff;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;white-space:nowrap;box-shadow:0 3px 8px rgba(0,0,0,.18)}
+  .cta-pill .tap{display:inline-block;animation:tap 1s ease-in-out infinite}
+  .cta-main{font-size:17px;font-weight:700;line-height:1.2}
+  .cta-sub{font-size:12.5px;font-weight:500;opacity:.85}
+  .cta-open{display:none}
+  .pay-details[open] summary{background:var(--head);color:#fff;box-shadow:none;animation:none;min-height:52px;padding:12px 16px}
+  .pay-details[open] .cta-pill,.pay-details[open] .cta-closed{display:none}
+  .pay-details[open] .cta-open{display:block;font-size:15px;font-weight:600}
+  @keyframes ctaPulse{0%,100%{box-shadow:0 6px 0 var(--head),0 0 0 0 rgba(242,193,78,.7)}50%{box-shadow:0 6px 0 var(--head),0 0 0 10px rgba(242,193,78,0)}}
+  @keyframes tap{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @media (prefers-reduced-motion: reduce){.pay-details summary,.cta-pill .tap{animation:none!important}}
+  .cmp{margin-top:18px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .cmp-head,.cmp-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));text-align:center}
+  .cmp-head{background:var(--head);color:#fff;font-size:clamp(11.5px,3.4vw,13px);font-weight:600;letter-spacing:.04em}
+  .cmp-head>span{padding:12px 6px}
+  .cmp-head small{display:block;color:#EBD3D8;font-weight:400;letter-spacing:0}
+  .cmp-head>span+span{border-left:2px solid rgba(255,255,255,.25)}
+  .cmp-label{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;padding:10px 12px 2px;border-top:1px solid var(--line)}
+  .cmp-row{font-size:clamp(13px,3.9vw,15px);font-weight:600}
+  .cmp-row>span{padding:4px 6px 12px}
+  .cmp-row>span+span{border-left:2px solid var(--line)}
+  .cmp-row.hl{background:var(--sand)}
+  .cmp-row.hl span{color:var(--head)}
+  .cmp-row.hl>span+span{border-left-color:#E8C9C3}
+  .cmp-group{background:var(--cream);font-family:var(--serif);font-size:20px;font-weight:600;color:var(--head);padding:10px 12px;border-top:1px solid var(--line)}
+
+  /* ===== Tap-to-open rows for the other unit types ===== */
+  .tabs{flex-wrap:wrap}
+  .tab{padding:0 16px}
+  .units.one{grid-template-columns:minmax(0,1fr);max-width:560px}
+  .more-list{margin-top:18px;max-width:560px}
+  .more-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink);font-weight:600;margin-bottom:8px}
+  .more{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);margin-bottom:8px;overflow:hidden}
+  .more summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;min-height:56px}
+  .more summary::-webkit-details-marker{display:none}
+  .more-name{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .more-name .utag{align-self:flex-start;font-size:10.5px;padding:2px 8px}
+  .more-name b{font-family:var(--serif);font-size:20px;color:var(--head);font-weight:600;line-height:1.1}
+  .more-name small{font-size:12.5px;color:var(--muted)}
+  .more-price{text-align:right;font-family:var(--serif);font-size:19px;font-weight:600;color:var(--head);white-space:nowrap}
+  .more-price small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.12em;color:var(--gold-ink)}
+  .more-price::after{content:"▾";display:block;font-family:var(--sans);font-size:14px;color:var(--gold-ink);transition:transform .2s}
+  .more[open] .more-price::after{transform:rotate(180deg)}
+  .more[open] summary{background:var(--sand)}
+  .more-body{padding:6px 14px 14px;border-top:1px solid var(--line)}
+  .more-plan{margin-top:10px}
+  .more-plan img{border:1px solid var(--line);border-radius:8px;background:#fff}
+  .more-plan figcaption a{display:inline-flex;min-height:44px;align-items:center;color:var(--head);font-weight:600;font-size:13.5px}
+  .more-cta{width:100%;margin-top:10px}
 
   /* ===== LIGHT THEME OVERRIDES: no dark blocks, dark text on soft backgrounds ===== */
   h2{color:var(--head)}
@@ -260,8 +438,6 @@
   .seller-photo{box-shadow:0 14px 30px -16px rgba(90,46,62,.55),0 0 0 1px var(--line)}
   footer{background:var(--blush);color:var(--ink)}
   footer strong{color:var(--head)}
-  .actionbar a{color:var(--head)}
-  .actionbar a.primary{background:var(--gold);color:#fff}
 </style>
 </head>
 <body>
@@ -282,7 +458,7 @@
         <p class="sub">2 and 3 bedroom homes between Roxas and Macapagal Blvd, near NAIA, Mall of Asia and the Bay City resorts.</p>
         <div class="ctas">
           <a class="btn" href="#book">Book a viewing</a>
-          <a class="btn btn-outline" href="#plans">See floor plans</a>
+          <a class="btn btn-outline" href="#glance">See units &amp; prices</a>
         </div>
       </div>
       <div class="hero-img">
@@ -293,8 +469,34 @@
   </div>
 </header>
 
+<!-- ===================== AT A GLANCE =====================
+     Lowest list prices (VAT inclusive) from the official price lists: Baler PL2,
+     Coron / Siargao / Misibis PL6, all valid until Nov 30, 2026. All four towers are completed. -->
+<section class="glance" id="glance" data-asof="2026-11-01">
+  <div class="wrap">
+    <div class="kicker">Palm Beach West at a glance</div>
+    <h2>Four towers, ready for you</h2>
+    <div class="glance-grid">
+      <div class="path rfo">
+        <span class="path-tag">✅ Ready for occupancy</span>
+        <h3>Move in now</h3>
+        <p class="lead">Four completed towers in Met Park · promo until Nov 30, 2026 <span class="disc">UP TO 50% OFF</span></p>
+        <table>
+          <tr><th>Tower</th><th style="text-align:right">From</th></tr>
+          <tr><td>Baler<small>Studio to 3 BR · 23.5–87.5 sqm</small></td><td class="num">₱7,840,000</td></tr>
+          <tr><td>Misibis<small>Studio to 3 BR · 23–87.4 sqm</small></td><td class="num">₱7,220,000</td></tr>
+          <tr><td>Coron<small>1 BR to 3 BR · 28–94 sqm</small></td><td class="num">₱8,260,000</td></tr>
+          <tr><td>Siargao<small>1 BR to 3 BR · 28–94 sqm</small></td><td class="num">₱8,320,000</td></tr>
+        </table>
+        <p class="asof">List prices before discount, VAT inclusive, from the official price lists (Nov 2026). Availability changes daily.</p>
+        <a class="btn" href="#plans">See Baler layouts &amp; prices</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== FEATURED: 2 BEDROOM ===================== -->
-<section class="featured" id="featured">
+<section class="featured" id="featured" data-asof="2026-11-01" data-promo-end="2026-11-30">
   <div class="wrap feat-grid">
     <figure class="feat-img">
       <img src="images/plan-2br-38-5.jpg" alt="Baler Tower 2 bedroom unit floor plan, 38.5 sqm with balcony" width="2000" height="1501" loading="lazy">
@@ -309,66 +511,396 @@
         <li>Furnished 2 bedroom model unit you can visit</li>
         <li>Granite kitchen countertop and modular base cabinets</li>
       </ul>
-      <!-- PRICE PLACEHOLDER: replace with "from ₱X" once the dated official price list is in hand -->
-      <p class="price-note"><b>Price:</b> ask me for the latest price list. Prices differ per floor and view, and promos change monthly.</p>
-      <a class="btn btn-dark" href="#inquire" data-pick-unit="2 Bedroom">Get the 2 BR price list</a>
+      <!-- From the official Baler price list PL2 (Nov 2026): 2 BR 38.5 sqm, VAT inclusive -->
+      <p class="price-note"><b>From ₱12,760,000</b> (2 BR, 38.5 sqm, VAT inclusive).<br><span class="promo-only">Spot cash until Nov 30: ₱6,380,000</span> <span class="disc">50% OFF</span></p>
+      <a class="btn btn-dark" href="#plans">See all 2 BR layouts</a>
     </div>
   </div>
 </section>
 
-<!-- ===================== FLOOR PLANS ===================== -->
-<section id="plans">
+<!-- ===================== UNITS =====================
+     Per tab: one open card, then tap-to-open rows for the other layouts and towers.
+     Figures from the official price lists (Baler PL2; Coron, Siargao, Misibis PL6; valid until Nov 30, 2026),
+     checked against the official Investment Proposal workbooks. "FROM" = lowest list price for that unit type,
+     VAT inclusive; availability must be confirmed by Joehanna. -->
+<section id="plans" data-asof="2026-11-01" data-promo-end="2026-11-30">
   <div class="wrap">
-    <div class="kicker">Baler Tower layouts</div>
-    <h2>Pick your layout</h2>
-    <p class="muted">Floor plans from the official presentation. Message me which one you like and I'll check what's available.</p>
+    <div class="stale" hidden>Prices and promos below are from an older price list. Message me for today's prices.</div>
+    <div class="kicker">Official price lists as of Nov 2026</div>
+    <h2>Pick your unit</h2>
+    <p class="muted">Starting prices per unit type, inclusive of 12% VAT where it applies. Prices vary per floor and view; I'll confirm which units are still available.</p>
 
     <div class="tabs" role="tablist">
-      <button class="tab" role="tab" aria-selected="true" data-tab="2br">2 Bedroom</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="3br">3 Bedroom</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="studio">Studio</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="1br">1 BR</button>
+      <button class="tab" role="tab" aria-selected="true" data-tab="2br">2 BR</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="3br">3 BR</button>
     </div>
 
-    <div class="plans" data-panel="2br">
-      <div class="plan"><div class="plan-head"><h3>2 BR</h3><span>38.5 sqm</span></div><img src="images/plan-2br-38-5.jpg" alt="2 BR unit floor plan, 38.5 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-38-5.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
-      <div class="plan"><div class="plan-head"><h3>2 BR</h3><span>39 sqm</span></div><img src="images/plan-2br-39.jpg" alt="2 BR unit floor plan, 39 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-39.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
-      <div class="plan"><div class="plan-head"><h3>2 BR End Unit</h3><span>39.5 sqm</span></div><img src="images/plan-2br-39-5.jpg" alt="2 BR end unit floor plan, 39.5 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-39-5.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
-      <div class="plan"><div class="plan-head"><h3>2 BR End Unit</h3><span>40 sqm</span></div><img src="images/plan-2br-40.jpg" alt="2 BR end unit floor plan, 40 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-40.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
-      <div class="plan"><div class="plan-head"><h3>2 BR End Unit</h3><span>49 sqm</span></div><img src="images/plan-2br-49.jpg" alt="2 BR end unit floor plan, 49 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-49.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
-      <div class="plan"><div class="plan-head"><h3>2 BR Deluxe</h3><span>52 sqm</span></div><img src="images/plan-2br-deluxe-52.jpg" alt="2 BR Deluxe unit floor plan, 52 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-2br-deluxe-52.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="2 Bedroom">Ask price →</a></div></div>
-    </div>
-
-    <div class="plans" data-panel="3br" hidden>
-      <div class="plan"><div class="plan-head"><h3>3 BR</h3><span>64 sqm</span></div><img src="images/plan-3br-64.jpg" alt="3 BR unit floor plan, 64 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-3br-64.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="3 Bedroom">Ask price →</a></div></div>
-      <div class="plan"><div class="plan-head"><h3>3 BR</h3><span>77 sqm</span></div><img src="images/plan-3br-77.jpg" alt="3 BR unit floor plan, 77 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-3br-77.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="3 Bedroom">Ask price →</a></div></div>
-      <div class="plan"><div class="plan-head"><h3>3 BR</h3><span>78 sqm</span></div><img src="images/plan-3br-78.jpg" alt="3 BR unit floor plan, 78 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-3br-78.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="3 Bedroom">Ask price →</a></div></div>
-      <div class="plan"><div class="plan-head"><h3>3 BR Deluxe</h3><span>87.5 sqm</span></div><img src="images/plan-3br-deluxe-87-5.jpg" alt="3 BR Deluxe unit floor plan, 87.5 sqm" width="2000" height="1501" loading="lazy"><div class="plan-actions"><a class="full" href="images/plan-3br-deluxe-87-5.jpg" target="_blank" rel="noopener">Full size</a><a class="ask" href="#inquire" data-pick-unit="3 Bedroom">Ask price →</a></div></div>
-    </div>
-
-    <div class="plans" style="margin-top:12px">
-      <div class="plan help">
-        <div><h3>Not sure which one?</h3><p>Tell me your budget, family size and plans for the unit, and I'll shortlist the available units with the computation for each.</p></div>
-        <a class="btn" href="#inquire" data-pick-unit="Not sure yet">Help me choose</a>
+    <div data-panel="studio" hidden>
+      <div class="units one">
+      <!-- Misibis Studio: lowest list price (unit 2N, 23 sqm) -->
+      <div class="unit">
+        <div class="unit-head">
+          <div><span class="utag">Misibis Tower</span><h3 style="margin-top:6px">Studio</h3><div class="size">23–25.5 sqm</div></div>
+          <div class="price"><small>FROM</small>₱7,220,000</div>
+        </div>
+        <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱3,223,214<small>VAT-exempt after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱22,678<small>per month</small></b></div>
+        <div class="meta">Price for the 23 sqm unit. <a href="#inquire" data-pick-unit="Studio">Ask me for the floor plan</a></div>
       </div>
+      </div>
+      <div class="more-list">
+        <p class="more-label">Other studios · tap to see the computation</p>
+        <!-- Baler Studio: unit 2N -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>Studio</b><small>23.5–26 sqm</small></span><span class="more-price"><small>FROM</small>₱7,840,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱3,500,000<small>VAT-exempt after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱24,744<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="Studio">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="Studio">Ask about this unit</a>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div data-panel="1br" hidden>
+      <div class="units one">
+      <!-- Coron One Bedroom: lowest list price (unit 2Q, 28 sqm) -->
+      <div class="unit">
+        <div class="unit-head">
+          <div><span class="utag">Coron Tower</span><h3 style="margin-top:6px">1 BR</h3><div class="size">28–44 sqm</div></div>
+          <div class="price"><small>FROM</small>₱8,260,000</div>
+        </div>
+        <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱4,130,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱26,144<small>per month</small></b></div>
+        <div class="meta">Price for the 28 sqm unit. <a href="#inquire" data-pick-unit="1 Bedroom">Ask me for the floor plan</a></div>
+      </div>
+      </div>
+      <div class="more-list">
+        <p class="more-label">Other 1 BR options · tap to see the computation</p>
+        <!-- Misibis One Bedroom: unit 2Q -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Misibis</span><b>1 BR</b><small>25.8–42.3 sqm</small></span><span class="more-price"><small>FROM</small>₱8,270,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱4,135,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱26,178<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="1 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="1 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Siargao One Bedroom: unit 2Q -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Siargao</span><b>1 BR</b><small>28–44 sqm</small></span><span class="more-price"><small>FROM</small>₱8,320,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱4,160,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱26,344<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="1 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="1 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Baler One Bedroom: unit 2Q -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>1 BR</b><small>26–42.5 sqm</small></span><span class="more-price"><small>FROM</small>₱8,680,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱4,340,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱27,544<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="1 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="1 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div data-panel="2br">
+      <div class="units one">
+      <!-- Baler 2BR 38.5: lowest list price for this layout (unit 3B) -->
+      <div class="flip" data-flip>
+        <div class="flip-inner">
+          <div class="face unit front">
+            <div class="unit-head">
+              <div><span class="utag">Baler Tower</span><h3 style="margin-top:6px">2 BR</h3><div class="size">38.5 sqm</div></div>
+              <div class="price"><small>FROM</small>₱12,760,000</div>
+            </div>
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱6,380,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱41,144<small>per month</small></b></div>
+            <button type="button" class="flip-btn" data-flip-toggle aria-expanded="false">↻ See floor plan</button>
+          </div>
+          <div class="face unit back" aria-hidden="true">
+            <div class="back-head"><h3>2 BR · 38.5 sqm</h3><span>Floor plan</span></div>
+            <img src="images/plan-2br-38-5.jpg" alt="2 BR floor plan, 38.5 sqm" loading="lazy" width="2000" height="1501">
+            <div class="back-actions"><a href="images/plan-2br-38-5.jpg" target="_blank" rel="noopener">View full size</a><button type="button" class="flip-btn" data-flip-toggle>↻ Back to prices</button></div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="more-list">
+        <p class="more-label">Other 2 BR options · tap to see the computation</p>
+        <!-- Baler 2BR 39: unit 3P -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>2 BR</b><small>39 sqm</small></span><span class="more-price"><small>FROM</small>₱13,060,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱6,530,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱42,144<small>per month</small></b></div>
+            <figure class="more-plan"><img src="images/plan-2br-39.jpg" alt="2 BR floor plan, 39 sqm" loading="lazy" width="2000" height="1501"><figcaption><a href="images/plan-2br-39.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption></figure>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="2 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Baler 2BR 39.5: unit 3A -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>2 BR End Unit</b><small>39.5 sqm</small></span><span class="more-price"><small>FROM</small>₱13,230,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱6,615,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱42,711<small>per month</small></b></div>
+            <figure class="more-plan"><img src="images/plan-2br-39-5.jpg" alt="2 BR End Unit floor plan, 39.5 sqm" loading="lazy" width="2000" height="1501"><figcaption><a href="images/plan-2br-39-5.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption></figure>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="2 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Baler 2BR 40: unit 3M -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>2 BR End Unit</b><small>40 sqm</small></span><span class="more-price"><small>FROM</small>₱13,540,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱6,770,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱43,744<small>per month</small></b></div>
+            <figure class="more-plan"><img src="images/plan-2br-40.jpg" alt="2 BR End Unit floor plan, 40 sqm" loading="lazy" width="2000" height="1501"><figcaption><a href="images/plan-2br-40.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption></figure>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="2 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Baler 2BR 49: unit 3G -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>2 BR End Unit</b><small>49 sqm · price includes the required parking slot</small></span><span class="more-price"><small>FROM</small>₱19,210,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱9,605,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱62,644<small>per month</small></b></div>
+            <figure class="more-plan"><img src="images/plan-2br-49.jpg" alt="2 BR End Unit floor plan, 49 sqm" loading="lazy" width="2000" height="1501"><figcaption><a href="images/plan-2br-49.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption></figure>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="2 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Baler 2BR Deluxe 52: unit 9S -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>2 BR Deluxe</b><small>52 sqm · price includes the required parking slot</small></span><span class="more-price"><small>FROM</small>₱19,980,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱9,990,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱65,211<small>per month</small></b></div>
+            <figure class="more-plan"><img src="images/plan-2br-deluxe-52.jpg" alt="2 BR Deluxe floor plan, 52 sqm" loading="lazy" width="2000" height="1501"><figcaption><a href="images/plan-2br-deluxe-52.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption></figure>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="2 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Misibis Two Bedroom: unit 2O -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Misibis</span><b>2 BR</b><small>36–75.7 sqm</small></span><span class="more-price"><small>FROM</small>₱10,250,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱5,125,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱32,778<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="2 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="2 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Coron Two Bedroom: unit 2C -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Coron</span><b>2 BR</b><small>36–82 sqm</small></span><span class="more-price"><small>FROM</small>₱10,610,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱5,305,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱33,978<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="2 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="2 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Siargao Two Bedroom: unit 2J -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Siargao</span><b>2 BR</b><small>36–82 sqm</small></span><span class="more-price"><small>FROM</small>₱10,690,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱5,345,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱34,244<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="2 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="2 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+      </div>
+    </div>
+    <div data-panel="3br" hidden>
+      <div class="units one">
+      <!-- Baler 3BR 64: lowest list price for this layout (unit 10NO, parking 2P-144) -->
+      <div class="flip" data-flip>
+        <div class="flip-inner">
+          <div class="face unit front">
+            <div class="unit-head">
+              <div><span class="utag">Baler Tower</span><h3 style="margin-top:6px">3 BR</h3><div class="size">64 sqm · price includes the required parking slot</div></div>
+              <div class="price"><small>FROM</small>₱24,270,000</div>
+            </div>
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱12,135,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱79,511<small>per month</small></b></div>
+            <button type="button" class="flip-btn" data-flip-toggle aria-expanded="false">↻ See floor plan</button>
+          </div>
+          <div class="face unit back" aria-hidden="true">
+            <div class="back-head"><h3>3 BR · 64 sqm</h3><span>Floor plan</span></div>
+            <img src="images/plan-3br-64.jpg" alt="3 BR floor plan, 64 sqm" loading="lazy" width="2000" height="1501">
+            <div class="back-actions"><a href="images/plan-3br-64.jpg" target="_blank" rel="noopener">View full size</a><button type="button" class="flip-btn" data-flip-toggle>↻ Back to prices</button></div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="more-list">
+        <p class="more-label">Other 3 BR options · tap to see the computation</p>
+        <!-- Baler 3BR 77: unit 10IJ -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>3 BR</b><small>77 sqm · price includes the required parking slot</small></span><span class="more-price"><small>FROM</small>₱29,170,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱14,585,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱95,844<small>per month</small></b></div>
+            <figure class="more-plan"><img src="images/plan-3br-77.jpg" alt="3 BR floor plan, 77 sqm" loading="lazy" width="2000" height="1501"><figcaption><a href="images/plan-3br-77.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption></figure>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="3 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Baler 3BR 78: unit 10KL -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>3 BR</b><small>78 sqm · price includes the required parking slot</small></span><span class="more-price"><small>FROM</small>₱29,790,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱14,895,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱97,911<small>per month</small></b></div>
+            <figure class="more-plan"><img src="images/plan-3br-78.jpg" alt="3 BR floor plan, 78 sqm" loading="lazy" width="2000" height="1501"><figcaption><a href="images/plan-3br-78.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption></figure>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="3 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Baler 3BR Deluxe 87.5: unit 10GH -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Baler</span><b>3 BR Deluxe</b><small>87.5 sqm · price includes the required parking slot</small></span><span class="more-price"><small>FROM</small>₱33,130,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱16,565,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱109,044<small>per month</small></b></div>
+            <figure class="more-plan"><img src="images/plan-3br-deluxe-87-5.jpg" alt="3 BR Deluxe floor plan, 87.5 sqm" loading="lazy" width="2000" height="1501"><figcaption><a href="images/plan-3br-deluxe-87-5.jpg" target="_blank" rel="noopener">View floor plan full size</a></figcaption></figure>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="3 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Misibis Three Bedroom: unit 10IJ -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Misibis</span><b>3 BR</b><small>76.8–87.4 sqm · price includes the required parking slot</small></span><span class="more-price"><small>FROM</small>₱26,850,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱13,425,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱88,111<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="3 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="3 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Siargao Three Bedroom: unit 10DE -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Siargao</span><b>3 BR</b><small>94 sqm · price includes the required parking slot</small></span><span class="more-price"><small>FROM</small>₱32,310,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱16,155,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱106,311<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="3 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="3 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+        <!-- Coron Three Bedroom: unit 10DE -->
+        <details class="more">
+          <summary><span class="more-name"><span class="utag">Coron</span><b>3 BR</b><small>94 sqm · price includes the required parking slot</small></span><span class="more-price"><small>FROM</small>₱32,560,000</span></summary>
+          <div class="more-body">
+            <div class="row save"><span>Spot cash <span class="disc">50% OFF</span></span><b class="promo-only">₱16,280,000<small>total after discount</small></b></div>
+            <div class="row"><span>Reservation fee</span><b>₱50,000</b></div>
+            <div class="row monthly"><span>20% spread over 36 months <span class="disc">40% OFF</span><br><span class="small muted">then 80% balance</span></span><b class="promo-only">₱107,144<small>per month</small></b></div>
+            <p class="meta">Floor plan on request. <a href="#inquire" data-pick-unit="3 Bedroom">Ask me for it</a></p>
+            <a class="btn btn-line more-cta" href="#inquire" data-pick-unit="3 Bedroom">Ask about this unit</a>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <div class="unit request" style="margin-top:16px">
+      <div>
+        <div class="unit-head"><div><h3>Not sure which one?</h3><div class="size">Four towers, studio to 3 BR</div></div></div>
+        <p class="meta" style="margin-top:4px">Tell me your budget, family size and plans for the unit, and I'll shortlist the available units with the official computation for each.</p>
+      </div>
+      <a class="btn" style="margin-top:16px" href="#inquire" data-pick-unit="Not sure yet">Help me choose</a>
     </div>
   </div>
 </section>
 
-<!-- ===================== PRICES & PAYMENT (on request until the official price list arrives) ===================== -->
-<section id="prices" style="padding-top:0">
+<!-- ===================== PAYMENT OPTIONS =====================
+     Discounts per the official PL2 payment terms (PPD sheet). The promo text in the official
+     computation says "valid until November 30, 2026 only", so badges and discounted figures
+     hide automatically after that date (data-promo-end). -->
+<section id="prices" style="padding-top:0" data-asof="2026-11-01" data-promo-end="2026-11-30">
   <div class="wrap">
-    <div class="kicker">Prices and payment terms</div>
-    <h2>Get the latest price list</h2>
-    <!-- PLACEHOLDER: when the dated Federal Land price list and sample computation arrive,
-         this block becomes the unit price cards and the payment options breakdown. -->
-    <div class="pricebox">
-      <ul>
-        <li>Current price list and available units</li>
-        <li>Payment terms and this month's promos</li>
-        <li>A sample computation for the unit you like</li>
-        <li>Reservation fee and requirements</li>
-      </ul>
-      <a class="btn btn-dark" href="#inquire">Send me the price list</a>
-    </div>
+    <div class="stale" hidden>Payment terms below are from an older price list. Message me for the latest terms.</div>
+    <div class="kicker">Payment options · promo until Nov 30, 2026</div>
+    <h2>Pick how you want to pay</h2>
+    <ul class="pay-summary">
+      <li><b>Spot cash <span class="disc">50% OFF</span></b><span class="promo-only">Half off the list price. Reserve, then pay the balance the following month.</span></li>
+      <li><b>20-80 <span class="disc">50% OFF</span></b><span class="promo-only">20% the month after reserving, 80% the month after that. Need more time for the 20%? Over 3 months <span class="disc soft">49.75% OFF</span> or 6 months <span class="disc soft">49.5% OFF</span>.</span></li>
+      <li><b>20% over 36 months <span class="disc">40% OFF</span></b><span class="promo-only">Light monthly payments for 3 years, then the 80% balance. Or 10% down + 20% over 36 months + 70% balance <span class="disc soft">41% OFF</span>.</span></li>
+      <li><b>5% down (EMI) <span class="disc">40% OFF</span></b><span class="promo-only">5% down, 15% over 22 months, then the 80% balance. Other EMI terms from 35% off.</span></li>
+    </ul>
+
+    <details class="pay-details">
+      <summary><span class="cta-pill"><span class="tap">👆</span> Click me</span><span class="cta-main cta-closed">See the full sample computation</span><span class="cta-sub cta-closed">Monthly amounts and discounts, step by step</span><span class="cta-open">▲ Hide the computation</span></summary>
+      <p class="muted" style="margin-top:14px">Sample computations based on the official Baler price list (Nov 2026). The ₱50,000 reservation fee is already deducted where shown.</p>
+      <div class="cmp">
+        <div class="cmp-head"><span>2 BR · 38.5 sqm<small>List price ₱12,760,000</small></span><span>3 BR · 64 sqm<small>₱24,270,000 with parking</small></span></div>
+
+        <div class="cmp-group">Option 1 · Spot cash <span class="disc">50% OFF</span></div>
+        <div class="cmp-label">Price after 50% discount</div>
+        <div class="cmp-row"><span><span class="promo-only">₱6,380,000</span><span class="save-line">You save ₱6,380,000</span></span><span><span class="promo-only">₱12,135,000</span><span class="save-line">You save ₱12,135,000</span></span></div>
+        <div class="cmp-label">On reservation</div>
+        <div class="cmp-row"><span>₱50,000</span><span>₱50,000</span></div>
+        <div class="cmp-label">Balance, the following month</div>
+        <div class="cmp-row hl"><span><span class="promo-only">₱6,330,000</span></span><span><span class="promo-only">₱12,085,000</span></span></div>
+
+        <div class="cmp-group">Option 2 · 20-80 <span class="disc">50% OFF</span></div>
+        <div class="cmp-label">Price after 50% discount</div>
+        <div class="cmp-row"><span><span class="promo-only">₱6,380,000</span><span class="save-line">You save ₱6,380,000</span></span><span><span class="promo-only">₱12,135,000</span><span class="save-line">You save ₱12,135,000</span></span></div>
+        <div class="cmp-label">20% the next month, less reservation</div>
+        <div class="cmp-row hl"><span><span class="promo-only">₱1,226,000</span></span><span><span class="promo-only">₱2,377,000</span></span></div>
+        <div class="cmp-label">80% the month after</div>
+        <div class="cmp-row"><span><span class="promo-only">₱5,104,000</span></span><span><span class="promo-only">₱9,708,000</span></span></div>
+
+        <div class="cmp-group">Option 3 · 20% over 36 months <span class="disc">40% OFF</span></div>
+        <div class="cmp-label">Price after 40% discount</div>
+        <div class="cmp-row"><span><span class="promo-only">₱7,656,000</span><span class="save-line">You save ₱5,104,000</span></span><span><span class="promo-only">₱14,562,000</span><span class="save-line">You save ₱9,708,000</span></span></div>
+        <div class="cmp-label">Monthly for 36 months</div>
+        <div class="cmp-row hl"><span><span class="promo-only">₱41,144</span></span><span><span class="promo-only">₱79,511</span></span></div>
+        <div class="cmp-label">80% balance after month 36</div>
+        <div class="cmp-row"><span><span class="promo-only">₱6,124,800</span></span><span><span class="promo-only">₱11,649,600</span></span></div>
+
+        <div class="cmp-group">Option 4 · 5% down (EMI) <span class="disc">40% OFF</span></div>
+        <div class="cmp-label">Price after 40% discount</div>
+        <div class="cmp-row"><span><span class="promo-only">₱7,656,000</span><span class="save-line">You save ₱5,104,000</span></span><span><span class="promo-only">₱14,562,000</span><span class="save-line">You save ₱9,708,000</span></span></div>
+        <div class="cmp-label">5% down the next month, less reservation</div>
+        <div class="cmp-row"><span><span class="promo-only">₱332,800</span></span><span><span class="promo-only">₱678,100</span></span></div>
+        <div class="cmp-label">Monthly for 22 months</div>
+        <div class="cmp-row hl"><span><span class="promo-only">₱52,200</span></span><span><span class="promo-only">₱99,286</span></span></div>
+        <div class="cmp-label">80% balance after</div>
+        <div class="cmp-row"><span><span class="promo-only">₱6,124,800</span></span><span><span class="promo-only">₱11,649,600</span></span></div>
+
+        <div class="cmp-group">Registration charges</div>
+        <div class="cmp-label">Paid separately: 6% of the discounted price before VAT (Options 1–2)</div>
+        <div class="cmp-row"><span><span class="promo-only">₱341,786</span></span><span><span class="promo-only">₱650,089</span></span></div>
+        <div class="cmp-label">Options 3–4</div>
+        <div class="cmp-row"><span><span class="promo-only">₱410,143</span></span><span><span class="promo-only">₱780,107</span></span></div>
+      </div>
+      <p class="small muted" style="margin-top:10px">Sample computation only, not an official quotation. Prices are VAT inclusive. The 3 BR price includes the required parking slot. Other terms are available, including lease-to-own. Your official computation from Joehanna is final.</p>
+    </details>
+    <p style="margin-top:18px"><a class="btn btn-dark" href="#inquire">Get the computation for my unit</a></p>
   </div>
 </section>
 
@@ -447,6 +979,48 @@
       <div><b>Churches</b><p>Baclaran Church · Shrine of Jesus Christ</p></div>
     </div>
   </div>
+
+  <!-- ===================== RAIL MINI MAP =====================
+       Checked Nov 16, 2026. Federal Land's own article describes Palm Beach West as near Taft Avenue station.
+       LRT-1 Cavite Extension Phase 1 (Redemptorist-Aseana to Dr. Santos) open since Nov 16, 2024.
+       Las Pinas, Zapote and Niog stations not yet built (Las Pinas site secured 2026; construction expected
+       as early as 2027, per DOTr statements reported by Daily Tribune). No walking distances shown on purpose:
+       they are not in the official materials. Update this note when the status changes. -->
+  <div class="wrap">
+    <div class="rail">
+      <div class="rail-head">
+        <div class="rail-badge" aria-hidden="true">🚆</div>
+        <div>
+          <h3>Getting here by train</h3>
+          <div class="rail-sub">LRT-1 and MRT-3 meet at EDSA–Taft, at the start of EDSA Extension</div>
+        </div>
+      </div>
+      <div class="legend"><span><i class="lo"></i>LRT-1 open now</span><span><i class="lm"></i>Transfer to MRT-3</span><span><i class="lf"></i>Future station</span></div>
+      <div class="rail-track">
+      <span class="train" aria-hidden="true">🚃</span>
+      <ul class="stations">
+        <li class="more">from Fernando Poe Jr. Station (Quezon City)</li>
+        <li>Gil Puyat</li>
+        <li>Libertad</li>
+        <li class="xfer stop">EDSA <span class="st-tag mrt">↔ MRT-3 Taft Ave</span></li>
+        <li class="home">
+          <div class="home-card">
+            <span class="pin" aria-hidden="true">📍</span>
+            <div><b>Palm Beach West</b><span>Met Park · Roxas Blvd cor. EDSA Extension</span></div>
+          </div>
+        </li>
+        <li>Baclaran</li>
+        <li>Redemptorist–ASEANA <span class="st-tag near">Along Roxas Blvd</span></li>
+        <li>MIA Road</li>
+        <li>PITX</li>
+        <li>Ninoy Aquino Avenue</li>
+        <li>Dr. Santos</li>
+        <li class="future">Las Piñas · Zapote · Niog <span class="st-tag soon">Future</span></li>
+      </ul>
+      </div>
+      <p class="rail-note">Simplified diagram, not to scale. Take a short ride from EDSA–Taft along EDSA Extension to Met Park. Las Piñas, Zapote and Niog (Bacoor) stations are not yet built; timelines are set by the government and may change. Status as of November 2026.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ===================== AMENITIES (actual photos) ===================== -->
@@ -507,8 +1081,8 @@
     <h2>Pick a time that works for you</h2>
     <p class="muted">Choose the option that fits where you are now. You'll get a confirmation by email right after booking.</p>
     <div class="book-grid">
-      <div class="book-card">
-        <div class="who">Abroad or OFW</div>
+      <div class="book-card abroad">
+        <div class="who">✈️ Abroad or OFW</div>
         <h3>Online presentation</h3>
         <ul>
           <li>One-on-one via Google Meet</li>
@@ -517,8 +1091,8 @@
         </ul>
         <a class="btn" href="https://cal.com/adolfofederal/palm-beach-west" data-cal="Online presentation (abroad / OFW)" target="_blank" rel="noopener">Book an online presentation</a>
       </div>
-      <div class="book-card">
-        <div class="who">In the Philippines</div>
+      <div class="book-card local">
+        <div class="who">📍 In the Philippines</div>
         <h3>Site and showroom viewing</h3>
         <ul>
           <li>Visit Palm Beach West and the model unit</li>
@@ -550,6 +1124,8 @@
       <div><label for="unit">Preferred unit</label>
         <select id="unit" name="preferred_unit">
           <option value="">Select one</option>
+          <option>Studio</option>
+          <option>1 Bedroom</option>
           <option>2 Bedroom</option>
           <option>3 Bedroom</option>
           <option>Not sure yet</option>
@@ -654,12 +1230,18 @@
   </div>
 </footer>
 
-<!-- ===================== STICKY MOBILE ACTION BAR ===================== -->
-<nav class="actionbar" aria-label="Quick contact">
-  <a href="tel:+639459836513" data-contact="phone">Call</a>
-  <a href="sms:+639459836513" data-contact="sms">Text</a>
-  <a class="primary" href="#book">Book a viewing</a>
+<!-- ===================== TOP CONTACT BAR (phones) =====================
+     WhatsApp and Messenger links are filled in from CONFIG by the script below.
+     Call and Text stay available in the seller section. -->
+<nav class="topbar" aria-label="Quick contact">
+  <a href="https://wa.me/639459836513" data-contact="whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+  <a href="https://m.me/61592335623672" data-contact="messenger" target="_blank" rel="noopener">Messenger</a>
+  <a href="#book">📅 Book</a>
+  <a class="primary" href="#inquire">Inquire</a>
 </nav>
+
+<!-- Floating booking pill: desktop only (hidden on phones, where the top bar has "Book") -->
+<a class="book-fab" href="#book">📅 Book appointment</a>
 
 <script>
 /* =====================================================================
@@ -683,7 +1265,10 @@ const CONFIG = {
   MESSENGER_URL: "https://m.me/61592335623672",  // FB page id from profile.php?id=61592335623672; test on a phone
 
   // Cal.com booking page (Joehanna's account). Both booking cards use this one event.
-  CAL_URL: "https://cal.com/adolfofederal/palm-beach-west"
+  CAL_URL: "https://cal.com/adolfofederal/palm-beach-west",
+
+  // Price safety net: discount figures hide this many days after the price list date (data-asof)
+  STALE_AFTER_DAYS: 45
 };
 
 /* Booking cards: same Cal.com event, with a prefilled note that tells Joehanna
@@ -884,6 +1469,52 @@ document.getElementById("lead-form").addEventListener("submit", async (e) => {
   } else {
     showDirectSend(payload, "<strong>Sorry, the form could not be sent.</strong> Please tap a button below so your request still reaches me.");
   }
+});
+
+/* Rail mini map: the little train rides down to EDSA station (nearest to Palm Beach West) and stops there. */
+(function () {
+  const track = document.querySelector(".rail-track");
+  const stop = track && track.querySelector(".stop");
+  if (!stop) return;
+  const set = () => track.style.setProperty("--ride-end", (stop.offsetTop + stop.offsetHeight / 2 - 12) + "px");
+  set(); window.addEventListener("resize", set);
+})();
+
+/* Price safety net. Each priced section carries the price list date (data-asof) and, if the promo
+   has an end date, data-promo-end. After STALE_AFTER_DAYS, or once the promo has ended, discounted
+   figures are replaced with a "message me" line, badges and "You save" lines hide, and a notice
+   appears. The page never shows an expired promo, even if nobody updates it. */
+(function () {
+  const now = new Date();
+  document.querySelectorAll("[data-asof]").forEach(section => {
+    const asOf = new Date(section.getAttribute("data-asof") + "T00:00:00+08:00");
+    const stale = now > new Date(asOf.getTime() + CONFIG.STALE_AFTER_DAYS * 86400000);
+    const end = section.getAttribute("data-promo-end");
+    const ended = end && now > new Date(end + "T23:59:59+08:00");
+    if (!stale && !ended) return;
+    section.querySelectorAll(".promo-only").forEach(el => { el.textContent = "Message me for today's prices"; });
+    section.querySelectorAll(".disc, .save-line").forEach(el => { el.hidden = true; });
+    section.querySelectorAll(".stale").forEach(el => { el.hidden = false; });
+  });
+})();
+
+/* Flip unit cards between prices (front) and floor plan (back). */
+document.querySelectorAll("[data-flip]").forEach(card => {
+  const front = card.querySelector(".front");
+  const back = card.querySelector(".back");
+  const setFlipped = (flipped) => {
+    card.classList.toggle("flipped", flipped);
+    front.setAttribute("aria-hidden", flipped ? "true" : "false");
+    back.setAttribute("aria-hidden", flipped ? "false" : "true");
+    front.inert = flipped;
+    back.inert = !flipped;
+    front.querySelector("[data-flip-toggle]").setAttribute("aria-expanded", flipped ? "true" : "false");
+  };
+  setFlipped(false);
+  card.addEventListener("click", e => {
+    if (e.target.closest("a")) return;
+    setFlipped(!card.classList.contains("flipped"));
+  });
 });
 </script>
 </body>
